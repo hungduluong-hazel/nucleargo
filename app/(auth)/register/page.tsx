@@ -9,11 +9,14 @@ import { useLanguage } from '@/lib/i18n/context'
 import { createClient } from '@/lib/supabase/client'
 
 const ROLES = [
-  'Analyst',
+  'Engineer',
+  'Project Manager',
+  "Owner's Engineer",
+  'Consultant / Advisor',
   'Regulator',
-  'Developer',
-  'Academic',
-  'Government',
+  'Government Official',
+  'Researcher / Academic',
+  'International Organization',
   'Other',
 ]
 
@@ -142,10 +145,10 @@ export default function RegisterPage() {
               type="password"
               autoComplete="new-password"
               required
-              minLength={8}
+              minLength={12}
               value={form.password}
               onChange={update('password')}
-              placeholder="Minimum 8 characters"
+              placeholder="Minimum 12 characters"
             />
 
             <Input

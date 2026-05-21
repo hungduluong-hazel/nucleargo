@@ -17,9 +17,9 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
   const router = useRouter()
 
   const navLinks = [
-    { key: 'nav_program'       as const, href: '#program' },
-    { key: 'nav_countries'     as const, href: '#countries' },
-    { key: 'nav_organizations' as const, href: '#organizations' },
+    { key: 'nav_program'       as const, href: '/program' },
+    { key: 'nav_countries'     as const, href: '/countries' },
+    { key: 'nav_organizations' as const, href: '/organizations' },
   ]
 
   async function handleLogout() {
@@ -41,13 +41,13 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
           {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map(({ key, href }) => (
-              <a
+              <Link
                 key={key}
                 href={href}
                 className="text-sm font-medium text-white/80 hover:text-accent transition-colors"
               >
                 {t(key)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -124,14 +124,14 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
       {menuOpen && (
         <div className="md:hidden bg-navy border-t border-white/10 px-4 py-4 flex flex-col gap-4">
           {navLinks.map(({ key, href }) => (
-            <a
+            <Link
               key={key}
               href={href}
               className="text-sm font-medium text-white/80 hover:text-accent"
               onClick={() => setMenuOpen(false)}
             >
               {t(key)}
-            </a>
+            </Link>
           ))}
 
           <div className="flex gap-3 pt-2">

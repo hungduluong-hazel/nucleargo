@@ -73,6 +73,33 @@ const vi: Record<TranslationKey, string> = {
   auth_check_email_body:
     'Chúng tôi đã gửi liên kết xác nhận đến địa chỉ email của bạn. Nhấp vào đó để kích hoạt tài khoản.',
 
+  // Countries page
+  countries_page_title: 'Các Quốc Gia Tiên Phong Hạt Nhân',
+  countries_page_subtitle:
+    'Theo dõi mọi chương trình hạt nhân mới nổi — từ quyết định chính sách đến ngày phát điện đầu tiên',
+  countries_iaea_phase2: 'Giai Đoạn 2',
+  countries_status_label: 'Trạng Thái',
+  countries_plants_label: 'Nhà Máy',
+  countries_capacity_label: 'Công Suất Mục Tiêu',
+  countries_partner_label: 'Đối Tác Chính',
+  countries_view_profile: 'Xem Hồ Sơ →',
+  countries_more_title: 'Thêm Chương Trình Đang Được Cập Nhật',
+  countries_coming_soon_badge: 'Sắp Ra Mắt',
+  countries_vn_name: 'Việt Nam',
+  countries_vn_status: 'Đang Hoạt Động — Phát Triển Cơ Sở Hạ Tầng',
+  countries_vn_plants: 'Ninh Thuận 1 & 2',
+  countries_vn_capacity: '4–6 GW đến năm 2030',
+  countries_vn_partner: 'Rosatom (NT1) · KEPCO (NT2)',
+  countries_pl_name: 'Ba Lan',
+  countries_pl_status: 'Đang Hoạt Động — Đã Chọn Địa Điểm',
+  countries_pl_plants: 'Lubiatowo-Kopalino (Tổ Máy 1 & 2)',
+  countries_pl_capacity: '6–9 GW đến năm 2043',
+  countries_pl_partner: 'Westinghouse AP1000',
+  countries_detail_coming_soon_title: 'Dữ Liệu Chương Trình Đầy Đủ Sắp Ra Mắt',
+  countries_detail_coming_soon_body:
+    'Chúng tôi đang xây dựng hồ sơ thông tin quốc gia đầy đủ, bao gồm các cột mốc IAEA, thông số kỹ thuật lò phản ứng, chi tiết tài chính và các bên liên quan chính.',
+  countries_back: '← Quay Lại Danh Sách Quốc Gia',
+
   // Dashboard
   dashboard_title: 'Bảng Điều Khiển',
   dashboard_welcome: 'Chào mừng trở lại',

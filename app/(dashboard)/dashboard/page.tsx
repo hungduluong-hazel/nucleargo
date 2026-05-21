@@ -12,34 +12,36 @@ type Development = {
 const STATIC_DEVELOPMENTS: Development[] = [
   {
     id: 's1',
-    title_en: 'Vietnam Approves Nuclear Energy Law',
+    title_en: 'Korea Eximbank & KEPCO Sign NT2 Financing Agreement',
     body_en:
-      'The National Assembly passed the revised Nuclear Energy Law, clearing the legal path for the Ninh Thuan 1 project and setting a 2030 construction target.',
+      'Korea Eximbank, K-Sure, KEPCO and PVN signed a financing exploration agreement for Ninh Thuan 2 in May 2026.',
     date: '2026-05-01',
-    category: 'Policy',
+    category: 'Partnership',
   },
   {
     id: 's2',
-    title_en: 'Poland Selects Westinghouse AP1000',
+    title_en: 'Vietnam-Russia Sign Ninh Thuan 1 IGA',
     body_en:
-      'Poland confirmed the AP1000 reactor design for its first nuclear plant in Pomerania, with first power targeted for 2035.',
-    date: '2026-04-15',
-    category: 'Technology',
+      'Vietnam and Russia signed an intergovernmental agreement for construction of Ninh Thuan 1 using VVER-1200 technology.',
+    date: '2026-03-01',
+    category: 'Technical',
   },
   {
     id: 's3',
-    title_en: 'IAEA Milestone Review — Bangladesh',
+    title_en: 'New Atomic Energy Law Takes Effect',
     body_en:
-      'Bangladesh completed its IAEA Phase 2 infrastructure milestone review for Rooppur NPP, securing $500M in additional international financing.',
-    date: '2026-03-20',
-    category: 'Finance',
+      "Vietnam's new Atomic Energy Law came into effect, designating nuclear power as a national strategic priority and supporting SMR development.",
+    date: '2026-01-01',
+    category: 'Policy',
   },
 ]
 
 const CATEGORY_STYLES: Record<string, string> = {
-  Policy:     'bg-blue-50 text-blue-700',
-  Technology: 'bg-emerald-50 text-emerald-700',
-  Finance:    'bg-amber-50 text-amber-700',
+  Policy:      'bg-blue-50 text-blue-700',
+  Technology:  'bg-emerald-50 text-emerald-700',
+  Technical:   'bg-emerald-50 text-emerald-700',
+  Finance:     'bg-amber-50 text-amber-700',
+  Partnership: 'bg-purple-50 text-purple-700',
 }
 
 export default async function DashboardPage() {
@@ -112,17 +114,17 @@ export default async function DashboardPage() {
         <MetricCard
           flag="🇻🇳"
           label="Ninh Thuận 1"
-          sublabel="Vietnam"
+          sublabel="Vietnam · Rosatom"
           value="Feasibility Update"
-          detail="Phase 2 site study completed"
+          detail="IGA signed March 2026"
           accent
         />
         <MetricCard
           flag="🇻🇳"
           label="Ninh Thuận 2"
-          sublabel="Vietnam"
+          sublabel="Vietnam · KEPCO"
           value="Partner Negotiation"
-          detail="ROSATOM MOU under review"
+          detail="KEPCO-PVN MOU signed Aug 2025"
         />
         <MetricCard
           flag="👷"

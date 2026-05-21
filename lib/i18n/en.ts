@@ -71,6 +71,33 @@ const en = {
   auth_check_email_body:
     'We sent a confirmation link to your email address. Click it to activate your account.',
 
+  // Countries page
+  countries_page_title: 'Nuclear Newcomer Countries',
+  countries_page_subtitle:
+    'Tracking every emerging nuclear program — from policy decision to first power',
+  countries_iaea_phase2: 'Phase 2',
+  countries_status_label: 'Status',
+  countries_plants_label: 'Plants',
+  countries_capacity_label: 'Capacity Target',
+  countries_partner_label: 'Key Partner',
+  countries_view_profile: 'View Profile →',
+  countries_more_title: 'More Programs Being Added',
+  countries_coming_soon_badge: 'Coming Soon',
+  countries_vn_name: 'Vietnam',
+  countries_vn_status: 'Active — Infrastructure Development',
+  countries_vn_plants: 'Ninh Thuan 1 & 2',
+  countries_vn_capacity: '4–6 GW by 2030',
+  countries_vn_partner: 'Rosatom (NT1) · KEPCO (NT2)',
+  countries_pl_name: 'Poland',
+  countries_pl_status: 'Active — Site Selected',
+  countries_pl_plants: 'Lubiatowo-Kopalino (Unit 1 & 2)',
+  countries_pl_capacity: '6–9 GW by 2043',
+  countries_pl_partner: 'Westinghouse AP1000',
+  countries_detail_coming_soon_title: 'Full Program Data Coming Soon',
+  countries_detail_coming_soon_body:
+    'We are building out the complete country intelligence profile, including IAEA milestones, reactor specifications, financing details, and key stakeholders.',
+  countries_back: '← Back to Countries',
+
   // Dashboard
   dashboard_title: 'Dashboard',
   dashboard_welcome: 'Welcome back',
