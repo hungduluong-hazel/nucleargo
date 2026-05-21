@@ -46,8 +46,8 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-navy mb-4">
-            <Logo size="sm" />
+          <div className="mb-5">
+            <Logo size="lg" theme="dark" />
           </div>
           <h1 className="text-2xl font-bold text-navy">{t('auth_login_title')}</h1>
           <p className="mt-1 text-sm text-navy/50">{t('auth_login_subtitle')}</p>
