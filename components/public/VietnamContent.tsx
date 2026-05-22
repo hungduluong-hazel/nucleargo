@@ -174,7 +174,7 @@ export default function VietnamContent() {
           </Link>
 
           <div className="flex items-start gap-4 mb-8">
-            <span className="text-5xl leading-none flex-shrink-0 mt-1">🇻🇳</span>
+            <span className="text-7xl leading-none flex-shrink-0 mt-1">🇻🇳</span>
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
                 {t('vn_hero_title')}
