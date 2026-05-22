@@ -173,19 +173,17 @@ export default function VietnamContent() {
             {t('countries_back')}
           </Link>
 
-          <div className="flex items-start gap-4 mb-8">
-            <span className="text-7xl leading-none flex-shrink-0 mt-1">🇻🇳</span>
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-                {t('vn_hero_title')}
-              </h1>
-              <p className="text-white/50 text-sm mt-2 leading-relaxed">
-                {t('vn_hero_sub')}
-              </p>
-            </div>
+          <div className="text-center">
+            <div className="text-8xl mb-4" style={{ lineHeight: 1 }}>🇻🇳</div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
+              {t('vn_hero_title')}
+            </h1>
+            <p className="text-slate-300 mb-8">
+              {t('vn_hero_sub')}
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {STAT_PILLS.map(({ key, icon }) => (
               <div
                 key={key}
