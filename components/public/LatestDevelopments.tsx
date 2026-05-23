@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useLanguage } from '@/lib/i18n/context'
 
 const categoryColors: Record<string, string> = {
@@ -11,7 +12,7 @@ const categoryColors: Record<string, string> = {
   'Tài Chính': 'bg-amber-50 text-amber-700',
 }
 
-export default function LatestDevelopments() {
+export default function LatestDevelopments({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const { t } = useLanguage()
 
   const developments = [
@@ -65,6 +66,15 @@ export default function LatestDevelopments() {
               <p className="text-sm text-navy/60 leading-relaxed">{body}</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            href={isLoggedIn ? '/developments' : '/login'}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+          >
+            View all developments →
+          </Link>
         </div>
       </div>
     </section>

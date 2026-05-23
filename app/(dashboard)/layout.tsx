@@ -4,8 +4,9 @@ import Logo from '@/components/ui/Logo'
 import { createClient } from '@/lib/supabase/server'
 
 const NAV_ITEMS = [
-  { href: '/dashboard',   label: 'Dashboard',        icon: '⊞' },
-  { href: '/tracker',     label: 'Program Tracker',  icon: '📡' },
+  { href: '/dashboard',    label: 'Dashboard',        icon: '⊞'  },
+  { href: '/developments', label: 'Developments',     icon: '📰' },
+  { href: '/tracker',      label: 'Program Tracker',  icon: '📡' },
   { href: '/countries',   label: 'Countries',        icon: '🌍' },
   { href: '/compliance',  label: 'IAEA Compliance',  icon: '✅' },
   { href: '/workforce',   label: 'Workforce',        icon: '🎓' },

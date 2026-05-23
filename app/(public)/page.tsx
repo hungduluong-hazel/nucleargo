@@ -17,7 +17,7 @@ export default async function HomePage() {
       <main className="flex-1">
         <Hero />
         <MetricCards />
-        <LatestDevelopments />
+        <LatestDevelopments isLoggedIn={!!user} />
       </main>
       <Footer />
     </div>
