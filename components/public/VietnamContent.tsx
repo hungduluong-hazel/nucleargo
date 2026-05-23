@@ -174,7 +174,11 @@ export default function VietnamContent() {
           </Link>
 
           <div className="text-center">
-            <div className="text-8xl mb-4" style={{ lineHeight: 1 }}>🇻🇳</div>
+            <img
+              src="https://flagcdn.com/w80/vn.png"
+              alt="Vietnam flag"
+              className="w-16 h-auto mx-auto mb-4"
+            />
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
               {t('vn_hero_title')}
             </h1>

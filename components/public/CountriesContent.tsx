@@ -18,7 +18,7 @@ type FeaturedCountry = {
 
 const FEATURED: FeaturedCountry[] = [
   {
-    flag: '🇻🇳',
+    flag: 'https://flagcdn.com/w40/vn.png',
     nameKey: 'countries_vn_name',
     statusKey: 'countries_vn_status',
     plantsKey: 'countries_vn_plants',
@@ -27,7 +27,7 @@ const FEATURED: FeaturedCountry[] = [
     href: '/countries/vietnam',
   },
   {
-    flag: '🇵🇱',
+    flag: 'https://flagcdn.com/w40/pl.png',
     nameKey: 'countries_pl_name',
     statusKey: 'countries_pl_status',
     plantsKey: 'countries_pl_plants',
@@ -108,7 +108,7 @@ function FeaturedCard({ country, t }: { country: FeaturedCountry; t: TFn }) {
       {/* Header row */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="text-4xl leading-none">{country.flag}</span>
+          <img src={country.flag} alt={t(country.nameKey)} className="w-8 h-auto" />
           <div>
             <p className="text-lg font-bold text-navy leading-tight">
               {t(country.nameKey)}
