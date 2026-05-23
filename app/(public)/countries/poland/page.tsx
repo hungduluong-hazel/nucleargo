@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import Navbar from '@/components/public/Navbar'
-import CountryDetailPlaceholder from '@/components/public/CountryDetailPlaceholder'
+import PolandContent from '@/components/public/PolandContent'
 import Footer from '@/components/public/Footer'
 
 export default async function PolandPage() {
@@ -12,7 +12,7 @@ export default async function PolandPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar isLoggedIn={!!user} />
-      <CountryDetailPlaceholder flag="🇵🇱" countryName="Poland" />
+      <PolandContent />
       <Footer />
     </div>
   )
