@@ -218,7 +218,7 @@ function MilestonesSection() {
             {[
               { label: 'Published standard', value: 'IAEA SSG-16 (Rev. 1)' },
               { label: 'Review mechanism',   value: 'INIR — Integrated Nuclear Infrastructure Review' },
-              { label: 'Countries in Phase 2', value: 'Vietnam, Poland, Bangladesh and others' },
+              { label: 'Countries in Phase 2', value: 'Vietnam, Poland, and others' },
               { label: 'Total phases',       value: '3 phases, each with a defined milestone' },
             ].map(({ label, value }) => (
               <div key={label} className="flex gap-3">
