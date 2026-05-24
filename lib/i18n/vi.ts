@@ -35,11 +35,11 @@ const vi: Record<TranslationKey, string> = {
   dev2_title: 'Ba Lan Chọn Lò Phản Ứng Westinghouse AP1000',
   dev2_body:
     'Ba Lan xác nhận thiết kế lò phản ứng AP1000 cho nhà máy điện hạt nhân đầu tiên tại Pomerania, dự kiến khởi công năm 2028 và phát điện lần đầu vào năm 2035.',
-  dev3_date: 'Tháng 3, 2026',
-  dev3_category: 'Tài Chính',
-  dev3_title: 'Đánh Giá Cột Mốc IAEA — Bangladesh',
+  dev3_date: 'Tháng 12, 2025',
+  dev3_category: 'Quy Định',
+  dev3_title: 'IAEA Hoàn Thành Đánh Giá Cơ Sở Hạ Tầng Giai Đoạn 2 cho Việt Nam',
   dev3_body:
-    'Bangladesh đã hoàn thành đánh giá cột mốc cơ sở hạ tầng Giai đoạn 2 của IAEA cho dự án Rooppur NPP, đảm bảo thêm 500 triệu USD tài trợ quốc tế.',
+    'IAEA đã tiến hành Đánh Giá Cơ Sở Hạ Tầng Hạt Nhân Tổng Hợp Giai Đoạn 2 cho Việt Nam vào tháng 12 năm 2025, đánh giá mức độ sẵn sàng trên toàn bộ 19 vấn đề cơ sở hạ tầng trước giai đoạn xây dựng.',
 
   // Footer
   footer_tagline: 'Thông Tin Chương Trình Hạt Nhân Toàn Cầu',

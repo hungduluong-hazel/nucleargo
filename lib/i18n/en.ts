@@ -33,11 +33,11 @@ const en = {
   dev2_title: 'Poland Selects Westinghouse AP1000',
   dev2_body:
     'Poland confirmed the AP1000 reactor design for its first nuclear plant in Pomerania, with construction expected to begin in 2028 and first power by 2035.',
-  dev3_date: 'March 2026',
-  dev3_category: 'Finance',
-  dev3_title: 'IAEA Milestone Review — Bangladesh',
+  dev3_date: 'December 2025',
+  dev3_category: 'Regulatory',
+  dev3_title: 'IAEA Completes Vietnam Phase 2 Infrastructure Review',
   dev3_body:
-    'Bangladesh completed its IAEA Phase 2 infrastructure milestone review for the Rooppur NPP, securing $500M in additional international financing.',
+    'The IAEA conducted its Phase 2 Integrated Nuclear Infrastructure Review for Vietnam in December 2025, assessing readiness across all 19 infrastructure issues ahead of the construction phase.',
 
   // Footer
   footer_tagline: 'Global Nuclear Program Intelligence',

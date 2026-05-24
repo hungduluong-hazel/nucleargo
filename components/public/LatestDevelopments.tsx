@@ -4,12 +4,14 @@ import Link from 'next/link'
 import { useLanguage } from '@/lib/i18n/context'
 
 const categoryColors: Record<string, string> = {
-  Policy: 'bg-blue-50 text-blue-700',
-  Technology: 'bg-emerald-50 text-emerald-700',
-  Finance: 'bg-amber-50 text-amber-700',
+  Policy:       'bg-blue-50 text-blue-700',
+  Technology:   'bg-emerald-50 text-emerald-700',
+  Finance:      'bg-amber-50 text-amber-700',
+  Regulatory:   'bg-purple-50 text-purple-700',
   'Chính Sách': 'bg-blue-50 text-blue-700',
-  'Công Nghệ': 'bg-emerald-50 text-emerald-700',
-  'Tài Chính': 'bg-amber-50 text-amber-700',
+  'Công Nghệ':  'bg-emerald-50 text-emerald-700',
+  'Tài Chính':  'bg-amber-50 text-amber-700',
+  'Quy Định':   'bg-purple-50 text-purple-700',
 }
 
 export default function LatestDevelopments({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
@@ -46,9 +48,10 @@ export default function LatestDevelopments({ isLoggedIn = false }: { isLoggedIn?
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {developments.map(({ date, category, title, body }) => (
-            <article
+            <Link
               key={title}
-              className="group rounded-xl border border-navy/8 bg-surface p-6 hover:shadow-md transition-shadow cursor-pointer"
+              href={isLoggedIn ? '/developments' : '/register'}
+              className="group block rounded-xl border border-navy/8 bg-surface p-6 hover:shadow-md hover:border-navy/20 transition-all cursor-pointer"
             >
               <div className="flex items-center justify-between mb-4">
                 <span
@@ -64,13 +67,13 @@ export default function LatestDevelopments({ isLoggedIn = false }: { isLoggedIn?
                 {title}
               </h3>
               <p className="text-sm text-navy/60 leading-relaxed">{body}</p>
-            </article>
+            </Link>
           ))}
         </div>
 
         <div className="mt-8 text-center">
           <Link
-            href={isLoggedIn ? '/developments' : '/login'}
+            href={isLoggedIn ? '/developments' : '/register'}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
           >
             View all developments →
