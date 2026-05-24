@@ -25,16 +25,16 @@ const vi: Record<TranslationKey, string> = {
 
   // Latest Developments
   developments_title: 'Tin Tức Mới Nhất',
-  dev1_date: 'Tháng 5, 2026',
+  dev1_date: 'Tháng 1, 2026',
   dev1_category: 'Chính Sách',
   dev1_title: 'Việt Nam Thông Qua Luật Năng Lượng Hạt Nhân',
   dev1_body:
     'Quốc hội đã thông qua Luật Năng Lượng Hạt Nhân sửa đổi, mở đường pháp lý cho dự án Ninh Thuận 1 với mục tiêu khởi công vào năm 2030.',
-  dev2_date: 'Tháng 4, 2026',
+  dev2_date: '2022',
   dev2_category: 'Công Nghệ',
   dev2_title: 'Ba Lan Chọn Lò Phản Ứng Westinghouse AP1000',
   dev2_body:
-    'Ba Lan xác nhận thiết kế lò phản ứng AP1000 cho nhà máy điện hạt nhân đầu tiên tại Pomerania, dự kiến khởi công năm 2028 và phát điện lần đầu vào năm 2035.',
+    'Ba Lan chọn Westinghouse Electric Company và công nghệ lò phản ứng AP1000 cho nhà máy điện hạt nhân đầu tiên tại Lubiatowo-Kopalino, Pomerania, với mục tiêu phát điện lần đầu vào năm 2033-2035.',
   dev3_date: 'Tháng 12, 2025',
   dev3_category: 'Quy Định',
   dev3_title: 'IAEA Hoàn Thành Đánh Giá Cơ Sở Hạ Tầng Giai Đoạn 2 cho Việt Nam',

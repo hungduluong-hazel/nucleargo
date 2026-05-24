@@ -23,16 +23,16 @@ const en = {
 
   // Latest Developments
   developments_title: 'Latest Developments',
-  dev1_date: 'May 2026',
+  dev1_date: 'January 2026',
   dev1_category: 'Policy',
   dev1_title: 'Vietnam Approves Nuclear Energy Law',
   dev1_body:
     'The National Assembly passed the revised Nuclear Energy Law, clearing the legal path for the Ninh Thuan 1 project and setting a 2030 construction target.',
-  dev2_date: 'April 2026',
+  dev2_date: '2022',
   dev2_category: 'Technology',
   dev2_title: 'Poland Selects Westinghouse AP1000',
   dev2_body:
-    'Poland confirmed the AP1000 reactor design for its first nuclear plant in Pomerania, with construction expected to begin in 2028 and first power by 2035.',
+    'Poland selected Westinghouse Electric Company and its AP1000 reactor technology for its first nuclear plant at Lubiatowo-Kopalino in Pomerania, with first power targeted for 2033-2035.',
   dev3_date: 'December 2025',
   dev3_category: 'Regulatory',
   dev3_title: 'IAEA Completes Vietnam Phase 2 Infrastructure Review',
