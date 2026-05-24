@@ -206,13 +206,15 @@ export default function OrganizationsContent() {
     <div className="flex-1">
       {/* ── Hero ── */}
       <div className="bg-navy">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-            Key Organizations
-          </h1>
-          <p className="mt-3 text-base text-white/55 max-w-2xl mx-auto text-center leading-relaxed">
-            The institutions building and overseeing the world&apos;s emerging nuclear programs
-          </p>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20 md:pb-20">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              Key Organizations
+            </h1>
+            <p className="text-base text-white/55 max-w-2xl mx-auto leading-relaxed">
+              The institutions building and overseeing the world&apos;s emerging nuclear programs
+            </p>
+          </div>
         </div>
       </div>
 

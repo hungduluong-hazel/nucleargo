@@ -56,13 +56,15 @@ export default function CountriesContent() {
     <div className="flex-1 bg-surface">
       {/* Page header */}
       <div className="bg-navy">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
-            {t('countries_page_title')}
-          </h1>
-          <p className="mt-3 text-base text-white/55 max-w-xl leading-relaxed">
-            {t('countries_page_subtitle')}
-          </p>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-16 md:pt-20 md:pb-20">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              {t('countries_page_title')}
+            </h1>
+            <p className="text-base text-white/55 max-w-2xl mx-auto leading-relaxed">
+              {t('countries_page_subtitle')}
+            </p>
+          </div>
         </div>
       </div>
 
