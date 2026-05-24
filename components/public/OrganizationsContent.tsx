@@ -210,7 +210,7 @@ export default function OrganizationsContent() {
           <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
             Key Organizations
           </h1>
-          <p className="mt-3 text-base text-white/55 max-w-xl leading-relaxed">
+          <p className="mt-3 text-base text-white/55 max-w-2xl mx-auto text-center leading-relaxed">
             The institutions building and overseeing the world&apos;s emerging nuclear programs
           </p>
         </div>

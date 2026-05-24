@@ -78,7 +78,7 @@ const PLANTS: PlantData[] = [
     phaseKey: 'vn_nt1_cur_phase',
     milestoneKey: 'vn_nt1_milestone',
     progress: 22,
-    partnerFlag: '🇷🇺',
+    partnerFlag: 'https://flagcdn.com/w20/ru.png',
     partnerKey: 'vn_nt1_partner_label',
   },
   {
@@ -92,14 +92,14 @@ const PLANTS: PlantData[] = [
     phaseKey: 'vn_nt2_cur_phase',
     milestoneKey: 'vn_nt2_milestone',
     progress: 12,
-    partnerFlag: '🇰🇷',
+    partnerFlag: 'https://flagcdn.com/w20/kr.png',
     partnerKey: 'vn_nt2_partner_label',
   },
 ]
 
 const PARTNERS: PartnerData[] = [
   {
-    flag: '🇷🇺',
+    flag: 'https://flagcdn.com/w20/ru.png',
     nameKey: 'vn_ru_name',
     roleKey: 'vn_ru_role',
     techKey: 'vn_ru_tech',
@@ -107,7 +107,7 @@ const PARTNERS: PartnerData[] = [
     statusVariant: 'active',
   },
   {
-    flag: '🇰🇷',
+    flag: 'https://flagcdn.com/w20/kr.png',
     nameKey: 'vn_kr_name',
     roleKey: 'vn_kr_role',
     techKey: 'vn_kr_tech',
@@ -115,7 +115,7 @@ const PARTNERS: PartnerData[] = [
     statusVariant: 'negotiation',
   },
   {
-    flag: '🇨🇦',
+    flag: 'https://flagcdn.com/w20/ca.png',
     nameKey: 'vn_ca_name',
     roleKey: 'vn_ca_role',
     orgsKey: 'vn_ca_orgs',
@@ -123,14 +123,14 @@ const PARTNERS: PartnerData[] = [
     statusVariant: 'active',
   },
   {
-    flag: '🇫🇷',
+    flag: 'https://flagcdn.com/w20/fr.png',
     nameKey: 'vn_fr_name',
     roleKey: 'vn_fr_role',
     agreementKey: 'vn_fr_agreement',
     statusVariant: 'active',
   },
   {
-    flag: '🇺🇸',
+    flag: 'https://flagcdn.com/w20/us.png',
     nameKey: 'vn_us_name',
     roleKey: 'vn_us_role',
     agreementKey: 'vn_us_agreement',
@@ -339,7 +339,7 @@ function PlantCard({ plant, t }: { plant: PlantData; t: TFn }) {
 
       {/* Partner footer */}
       <div className="pt-1 border-t border-navy/6 flex items-center gap-2.5">
-        <span className="text-xl">{plant.partnerFlag}</span>
+        <img src={plant.partnerFlag} alt="" className="w-6 h-auto flex-shrink-0" />
         <div>
           <p className="text-xs text-navy/40 font-medium">{t('vn_lbl_partner')}</p>
           <p className="text-sm font-semibold text-navy">{t(plant.partnerKey)}</p>
@@ -369,7 +369,7 @@ function PartnerCard({ partner, t }: { partner: PartnerData; t: TFn }) {
       {/* Header */}
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2.5">
-          <span className="text-2xl leading-none">{partner.flag}</span>
+          <img src={partner.flag} alt="" className="w-6 h-auto flex-shrink-0" />
           <span className="text-sm font-bold text-navy">{t(partner.nameKey)}</span>
         </div>
         <span className={`flex-shrink-0 text-xs font-semibold rounded-full px-2.5 py-0.5 ${

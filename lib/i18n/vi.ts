@@ -11,7 +11,7 @@ const vi: Record<TranslationKey, string> = {
   // Hero
   hero_headline: 'Nền Tảng Thông Tin Chương Trình Hạt Nhân Toàn Cầu',
   hero_sub:
-    'Theo dõi mọi chương trình hạt nhân mới nổi trên thế giới — từ quyết định chính sách đến ngày phát điện đầu tiên. Dành cho các nhà phân tích, cơ quan quản lý và nhà phát triển.',
+    'Theo dõi mọi chương trình hạt nhân mới nổi trên thế giới — từ quyết định chính sách đến ngày phát điện đầu tiên. Dành cho kỹ sư chủ đầu tư, nhà phân tích và chuyên gia hạt nhân.',
   hero_cta_register: 'Đăng Ký Miễn Phí',
   hero_cta_programs: 'Xem Chương Trình',
 

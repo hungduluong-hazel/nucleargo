@@ -38,15 +38,15 @@ const FEATURED: FeaturedCountry[] = [
 ]
 
 const COMING_SOON = [
-  { flag: '🇬🇭', name: 'Ghana' },
-  { flag: '🇰🇪', name: 'Kenya' },
-  { flag: '🇳🇬', name: 'Nigeria' },
-  { flag: '🇮🇩', name: 'Indonesia' },
-  { flag: '🇵🇭', name: 'Philippines' },
-  { flag: '🇸🇦', name: 'Saudi Arabia' },
-  { flag: '🇧🇩', name: 'Bangladesh' },
-  { flag: '🇹🇷', name: 'Turkey' },
-  { flag: '🇪🇬', name: 'Egypt' },
+  { flag: 'https://flagcdn.com/w40/gh.png', name: 'Ghana' },
+  { flag: 'https://flagcdn.com/w40/ke.png', name: 'Kenya' },
+  { flag: 'https://flagcdn.com/w40/ng.png', name: 'Nigeria' },
+  { flag: 'https://flagcdn.com/w40/id.png', name: 'Indonesia' },
+  { flag: 'https://flagcdn.com/w40/ph.png', name: 'Philippines' },
+  { flag: 'https://flagcdn.com/w40/sa.png', name: 'Saudi Arabia' },
+  { flag: 'https://flagcdn.com/w40/bd.png', name: 'Bangladesh' },
+  { flag: 'https://flagcdn.com/w40/tr.png', name: 'Turkey' },
+  { flag: 'https://flagcdn.com/w40/eg.png', name: 'Egypt' },
 ]
 
 export default function CountriesContent() {
@@ -85,7 +85,7 @@ export default function CountriesContent() {
                 key={name}
                 className="bg-white rounded-xl border border-navy/8 px-4 py-5 flex flex-col items-center gap-2.5 text-center"
               >
-                <span className="text-2xl">{flag}</span>
+                <img src={flag} alt={name} className="w-10 h-auto mx-auto mb-2" />
                 <p className="text-sm font-semibold text-navy leading-snug">{name}</p>
                 <span className="text-xs font-medium text-navy/40 bg-navy/5 rounded-full px-2.5 py-0.5">
                   {t('countries_coming_soon_badge')}

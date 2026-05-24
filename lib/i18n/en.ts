@@ -9,7 +9,7 @@ const en = {
   // Hero
   hero_headline: 'The Global Nuclear Program Intelligence Platform',
   hero_sub:
-    'Track every emerging nuclear program worldwide — from policy decisions to first power. Built for analysts, regulators, and developers.',
+    "Track every emerging nuclear program worldwide — from policy decisions to first power. Built for owner's engineers, analysts, and nuclear professionals.",
   hero_cta_register: 'Register Free',
   hero_cta_programs: 'View Programs',
 

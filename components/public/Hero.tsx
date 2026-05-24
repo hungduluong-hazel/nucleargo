@@ -20,7 +20,7 @@ export default function Hero() {
       {/* Radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(200,16,46,0.15),transparent)]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-36 md:pb-16 text-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-16 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold text-accent mb-8">
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
