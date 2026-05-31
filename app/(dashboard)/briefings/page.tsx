@@ -61,11 +61,26 @@ type FeatureIcon = 'document' | 'globe' | 'people'
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+function fmtPublishedDate(iso: string | null): string {
+  if (!iso) return ''
+  const [y, m] = iso.split('-')
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  return `${months[parseInt(m, 10) - 1]} ${y}`
+}
+
 export default async function BriefingsPage() {
   const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const [
+    { data: { user } },
+    { data: briefingRows },
+  ] = await Promise.all([
+    supabase.auth.getUser(),
+    supabase
+      .from('briefings')
+      .select('*')
+      .eq('is_published', true)
+      .order('published_date', { ascending: false }),
+  ])
 
   return (
     <div className="space-y-10">
@@ -184,13 +199,39 @@ export default async function BriefingsPage() {
       {/* ── Archive ── */}
       <div>
         <h2 className="text-lg font-bold text-navy mb-5">Briefing Archive</h2>
-        <div className="bg-white rounded-2xl border border-navy/8 px-6 py-14 flex flex-col items-center justify-center text-center">
-          <ArchiveIcon />
-          <p className="text-base font-semibold text-navy/40 mt-4">No published briefings yet</p>
-          <p className="text-sm text-navy/30 mt-1">
-            Issue 1 publishes June 2026. Past issues will appear here.
-          </p>
-        </div>
+        {briefingRows && briefingRows.length > 0 ? (
+          <div className="space-y-3">
+            {briefingRows.map((b) => (
+              <div key={b.id as string} className="bg-white rounded-2xl border border-navy/8 p-6">
+                <p className="text-xs font-semibold text-navy/40 uppercase tracking-wider mb-2">
+                  {fmtPublishedDate(b.published_date as string | null)}
+                </p>
+                <h3 className="text-base font-bold text-navy leading-snug mb-2">
+                  {b.title_en as string}
+                </h3>
+                {b.summary_en && (
+                  <p className="text-sm text-navy/60 leading-relaxed mb-4">
+                    {b.summary_en as string}
+                  </p>
+                )}
+                <button
+                  type="button"
+                  className="text-sm font-semibold rounded-lg px-4 py-2 bg-navy text-white hover:bg-navy/90 transition-colors"
+                >
+                  Read briefing
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-2xl border border-navy/8 px-6 py-14 flex flex-col items-center justify-center text-center">
+            <ArchiveIcon />
+            <p className="text-base font-semibold text-navy/40 mt-4">No published briefings yet</p>
+            <p className="text-sm text-navy/30 mt-1">
+              Issue 1 publishes June 2026. Past issues will appear here.
+            </p>
+          </div>
+        )}
       </div>
 
     </div>

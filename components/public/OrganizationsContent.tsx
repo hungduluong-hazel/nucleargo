@@ -53,154 +53,15 @@ const FILTERS: Array<{ label: string; value: FilterValue }> = [
   { label: 'Government',             value: 'Government' },
 ]
 
-// ─── Organization data ────────────────────────────────────────────────────────
-
-const ORGANIZATIONS: OrgData[] = [
-  // ── Owners / Operators ──
-  {
-    name: 'EVN (Vietnam Electricity)',
-    flagUrl: 'https://flagcdn.com/w20/vn.png',
-    country: 'Vietnam',
-    type: 'Owner / Operator',
-    role: 'State utility and owner of Ninh Thuan 1. Responsible for project oversight and eventual plant operation.',
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'PVN (PetroVietnam)',
-    flagUrl: 'https://flagcdn.com/w20/vn.png',
-    country: 'Vietnam',
-    type: 'Owner / Operator',
-    role: 'State energy company and owner of Ninh Thuan 2. Managing KEPCO partnership and workforce development.',
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'PEJ (Polskie Elektrownie Jądrowe)',
-    flagUrl: 'https://flagcdn.com/w20/pl.png',
-    country: 'Poland',
-    type: 'Owner / Operator',
-    role: "Polish state nuclear company responsible for developing and operating Poland's first nuclear power plants at Lubiatowo-Kopalino.",
-    programs: ['Poland'],
-  },
-  // ── Regulators ──
-  {
-    name: 'VARANS',
-    flagUrl: 'https://flagcdn.com/w20/vn.png',
-    country: 'Vietnam',
-    type: 'Regulator',
-    role: 'Vietnam Agency for Radiation and Nuclear Safety. Responsible for nuclear safety regulation and licensing under MOST.',
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'PAA (Polish Nuclear Regulatory Authority)',
-    flagUrl: 'https://flagcdn.com/w20/pl.png',
-    country: 'Poland',
-    type: 'Regulator',
-    role: 'Polish nuclear safety regulator responsible for licensing and oversight of nuclear facilities and activities.',
-    programs: ['Poland'],
-  },
-  {
-    name: 'CNSC (Canadian Nuclear Safety Commission)',
-    flagUrl: 'https://flagcdn.com/w20/ca.png',
-    country: 'Canada',
-    type: 'Regulator',
-    role: "Canada's federal nuclear regulator. Provides regulatory expertise and cooperation to emerging nuclear countries through IAEA technical cooperation programs.",
-    programs: ['Global'],
-  },
-  // ── Technology Suppliers ──
-  {
-    name: 'Rosatom',
-    flagUrl: 'https://flagcdn.com/w20/ru.png',
-    country: 'Russia',
-    type: 'Technology Supplier',
-    role: 'Russian state nuclear corporation and technology supplier for Ninh Thuan 1. Providing VVER-1200 reactor technology under IGA signed March 2026.',
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'KEPCO (Korea Electric Power Corporation)',
-    flagUrl: 'https://flagcdn.com/w20/kr.png',
-    country: 'South Korea',
-    type: 'Technology Supplier',
-    role: 'South Korean state utility and prospective technology supplier for Ninh Thuan 2. APR-1400 technology. MOU with PVN signed August 2025.',
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'Westinghouse Electric Company',
-    flagUrl: 'https://flagcdn.com/w20/us.png',
-    country: 'USA',
-    type: 'Technology Supplier',
-    role: "Selected technology supplier for Poland's nuclear program. Providing AP1000 reactor technology for Lubiatowo-Kopalino.",
-    programs: ['Poland'],
-  },
-  // ── International ──
-  {
-    name: 'IAEA (International Atomic Energy Agency)',
-    flagUrl: 'https://flagcdn.com/w20/at.png',
-    country: 'International (Vienna)',
-    type: 'International',
-    role: 'UN nuclear agency providing the Milestones Approach framework, INIR reviews, technical cooperation, and safety standards for all newcomer nuclear countries.',
-    programs: ['Global'],
-  },
-  {
-    name: 'AECL (Atomic Energy of Canada Limited)',
-    flagUrl: 'https://flagcdn.com/w20/ca.png',
-    country: 'Canada',
-    type: 'International',
-    role: 'Canadian federal Crown corporation. Signed technical cooperation agreement with Vietnam Atomic Energy Commission (VAEA) for nuclear energy information exchange.',
-    programs: ['Vietnam'],
-  },
-  // ── Advisory & Engineering ──
-  {
-    name: 'AtkinsRéalis',
-    flagUrl: 'https://flagcdn.com/w20/ca.png',
-    country: 'Canada',
-    type: 'Advisory & Engineering',
-    role: "Global engineering and project management firm. Active in Vietnam and Poland. Owner's engineer advisory, nuclear new build engineering, and regulatory support.",
-    programs: ['Vietnam', 'Poland'],
-  },
-  {
-    name: 'Laurentis Energy Partners',
-    flagUrl: 'https://flagcdn.com/w20/ca.png',
-    country: 'Canada',
-    type: 'Advisory & Engineering',
-    role: 'OPG subsidiary providing nuclear services including operator training, project management, and technical advisory. Romania Cernavodă training precedent.',
-    programs: ['Global'],
-  },
-  // ── Government ──
-  {
-    name: 'MOIT (Ministry of Industry and Trade)',
-    flagUrl: 'https://flagcdn.com/w20/vn.png',
-    country: 'Vietnam',
-    type: 'Government',
-    role: "Vietnam's ministry responsible for energy policy and the National Power Development Plan 8 which includes nuclear.",
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'MOST (Ministry of Science and Technology)',
-    flagUrl: 'https://flagcdn.com/w20/vn.png',
-    country: 'Vietnam',
-    type: 'Government',
-    role: "Oversees Vietnam's nuclear science and technology including VARANS and the Vietnam Atomic Energy Institute (VINATOM).",
-    programs: ['Vietnam'],
-  },
-  {
-    name: 'Ministry of Climate and Environment',
-    flagUrl: 'https://flagcdn.com/w20/pl.png',
-    country: 'Poland',
-    type: 'Government',
-    role: 'Polish ministry responsible for nuclear energy policy and the national nuclear power program roadmap.',
-    programs: ['Poland'],
-  },
-]
-
 // ─── Main export ─────────────────────────────────────────────────────────────
 
-export default function OrganizationsContent() {
+export default function OrganizationsContent({ orgs }: { orgs: OrgData[] }) {
   const [activeFilter, setActiveFilter] = useState<FilterValue>('All')
 
   const filtered =
     activeFilter === 'All'
-      ? ORGANIZATIONS
-      : ORGANIZATIONS.filter((o) => o.type === activeFilter)
+      ? orgs
+      : orgs.filter((o) => o.type === activeFilter)
 
   return (
     <div className="flex-1">
