@@ -7,6 +7,7 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'hungduluong@gmail.com'
 
 const NAV_ITEMS = [
   { href: '/admin',              label: 'Overview',      icon: '⊞' },
+  { href: '/admin/review',       label: 'AI Review',     icon: '✦' },
   { href: '/admin/briefings',    label: 'Briefings',     icon: '📋' },
   { href: '/admin/developments', label: 'Developments',  icon: '📰' },
   { href: '/admin/compliance',   label: 'Compliance',    icon: '✅' },
@@ -17,7 +18,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user) {
+    redirect('/login')
+  }
+
+  if (user.email !== ADMIN_EMAIL) {
     redirect('/dashboard')
   }
 
