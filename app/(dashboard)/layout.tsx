@@ -14,6 +14,8 @@ const NAV_ITEMS = [
   { href: '/profile',     label: 'Profile',          icon: '👤' },
 ]
 
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'hungduluong@gmail.com'
+
 export default async function DashboardLayout({
   children,
 }: {
@@ -27,6 +29,8 @@ export default async function DashboardLayout({
   if (!user) {
     redirect('/login')
   }
+
+  const isAdmin = user?.email === ADMIN_EMAIL
 
   const { data: profile } = await supabase
     .from('profiles')
@@ -69,6 +73,14 @@ export default async function DashboardLayout({
               <p className="text-xs text-white/35 truncate">{user.email}</p>
             </div>
           </div>
+          {isAdmin && (
+            <Link
+              href="/admin"
+              className="block w-full text-left px-2 py-1.5 text-xs text-accent hover:text-accent/80 transition-colors rounded font-semibold"
+            >
+              Admin panel
+            </Link>
+          )}
           <form action="/auth/signout" method="post" className="mt-1">
             <button
               type="submit"
