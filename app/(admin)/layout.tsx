@@ -8,6 +8,7 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'hungduluong@gmail.com'
 const NAV_ITEMS = [
   { href: '/admin',              label: 'Overview',      icon: '⊞' },
   { href: '/admin/review',       label: 'AI Review',     icon: '✦' },
+  { href: '/admin/articles',     label: 'Articles',      icon: '✍' },
   { href: '/admin/briefings',    label: 'Briefings',     icon: '📋' },
   { href: '/admin/developments', label: 'Developments',  icon: '📰' },
   { href: '/admin/compliance',   label: 'Compliance',    icon: '✅' },

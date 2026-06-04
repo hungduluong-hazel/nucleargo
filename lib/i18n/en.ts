@@ -3,6 +3,7 @@ const en = {
   nav_program: 'Program',
   nav_countries: 'Countries',
   nav_organizations: 'Organizations',
+  nav_articles: 'Articles',
   nav_login: 'Login',
   nav_register: 'Register',
 
@@ -385,4 +386,5 @@ const en = {
 } as const
 
 export type TranslationKey = keyof typeof en
+
 export default en

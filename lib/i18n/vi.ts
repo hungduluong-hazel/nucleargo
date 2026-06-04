@@ -5,6 +5,7 @@ const vi: Record<TranslationKey, string> = {
   nav_program: 'Chương Trình',
   nav_countries: 'Quốc Gia',
   nav_organizations: 'Tổ Chức',
+  nav_articles: 'Bài Viết',
   nav_login: 'Đăng Nhập',
   nav_register: 'Đăng Ký',
 

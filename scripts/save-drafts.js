@@ -117,6 +117,7 @@ async function main() {
   const today = new Date().toISOString().split('T')[0]
   let devCount = 0
   let briefingCount = 0
+  let articleCount = 0
 
   // ── Save developments ──
   if (drafts.developments?.length) {
@@ -152,15 +153,44 @@ async function main() {
     console.log(`✓ Saved ${briefingCount} briefing draft(s)`)
   }
 
-  if (devCount === 0 && briefingCount === 0) {
+  // ── Save articles ──
+  if (drafts.articles?.length) {
+    const rows = drafts.articles.map(a => {
+      const wordCount = a.body ? a.body.split(/\s+/).length : 0
+      return {
+        title:               a.title,
+        slug:                a.slug || a.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        excerpt:             a.excerpt             || null,
+        body:                a.body                || null,
+        meta_description:    a.meta_description    || null,
+        keywords:            a.keywords            || null,
+        // Vietnamese fields
+        title_vi:            a.title_vi            || null,
+        excerpt_vi:          a.excerpt_vi          || null,
+        body_vi:             a.body_vi             || null,
+        meta_description_vi: a.meta_description_vi || null,
+        keywords_vi:         a.keywords_vi         || null,
+        author:              a.author              || 'NuclearGo Editorial',
+        published_date:      a.published_date      || today,
+        read_time_mins:      Math.max(1, Math.round(wordCount / 200)),
+        is_published:        false,
+        ai_generated:        true,
+        review_status:       'pending',
+      }
+    })
+    await supabaseInsert(supabaseUrl, serviceKey, 'articles', rows)
+    articleCount = rows.length
+    console.log(`✓ Saved ${articleCount} article draft(s)`)
+  }
+
+  if (devCount === 0 && briefingCount === 0 && articleCount === 0) {
     console.log('No drafts to save.')
     return
   }
 
-  console.log(`\nDone. ${devCount + briefingCount} draft(s) saved — review at https://nucleargo.com/admin/review`)
-
-  // Output summary for the scheduled task to use in notification
-  console.log(JSON.stringify({ devCount, briefingCount, reviewUrl: 'https://nucleargo.com/admin/review' }))
+  const total = devCount + briefingCount + articleCount
+  console.log(`\nDone. ${total} draft(s) saved — review at https://nucleargo.com/admin/review`)
+  console.log(JSON.stringify({ devCount, briefingCount, articleCount, reviewUrl: 'https://nucleargo.com/admin/review' }))
 }
 
 main().catch(err => {

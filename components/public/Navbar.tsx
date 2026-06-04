@@ -20,6 +20,7 @@ export default function Navbar({ isLoggedIn = false }: NavbarProps) {
     { key: 'nav_program'       as const, href: '/program' },
     { key: 'nav_countries'     as const, href: '/countries' },
     { key: 'nav_organizations' as const, href: '/organizations' },
+    { key: 'nav_articles'      as const, href: '/articles' },
   ]
 
   async function handleLogout() {
