@@ -51,7 +51,13 @@ export default async function AdminArticlesPage() {
 
       <div className="bg-white rounded-xl border border-navy/8 overflow-hidden">
         {articles && articles.length > 0 ? (
-          <table className="w-full text-sm">
+          <table className="w-full text-sm table-fixed">
+            <colgroup>
+              <col style={{width: '45%'}} />
+              <col style={{width: '12%'}} />
+              <col style={{width: '12%'}} />
+              <col style={{width: '31%'}} />
+            </colgroup>
             <thead>
               <tr className="border-b border-navy/6 bg-navy/2">
                 <th className="text-left px-5 py-3 text-xs font-semibold text-navy/40 uppercase tracking-wider">Title</th>
@@ -66,14 +72,14 @@ export default async function AdminArticlesPage() {
                 const deleteAction = deleteArticle.bind(null, a.id as string)
                 return (
                   <tr key={a.id as string}>
-                    <td className="px-5 py-3 w-0 min-w-0" style={{maxWidth: '380px'}}>
-                      <div className="flex items-center gap-2">
+                    <td className="px-5 py-3 overflow-hidden">
+                      <div className="flex items-center gap-2 min-w-0">
                         {a.ai_generated && (
-                          <span className="text-xs font-bold text-accent">AI</span>
+                          <span className="text-xs font-bold text-accent flex-shrink-0">AI</span>
                         )}
-                        <div>
+                        <div className="min-w-0">
                           <p className="font-medium text-navy truncate">{a.title as string}</p>
-                          <p className="text-xs text-navy/35 font-mono">/articles/{a.slug as string}</p>
+                          <p className="text-xs text-navy/35 font-mono truncate">/articles/{a.slug as string}</p>
                         </div>
                       </div>
                     </td>
