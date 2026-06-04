@@ -166,7 +166,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <section className="max-w-3xl mx-auto px-6 py-10">
           {bodyHtml ? (
             <div
-              className="prose prose-navy max-w-none prose-headings:font-bold prose-headings:text-navy prose-p:text-navy/70 prose-p:leading-relaxed prose-a:text-accent prose-li:text-navy/70 prose-strong:text-navy"
+              className="article-body"
               dangerouslySetInnerHTML={{ __html: bodyHtml }}
             />
           ) : (
