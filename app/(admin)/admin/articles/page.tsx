@@ -66,7 +66,7 @@ export default async function AdminArticlesPage() {
                 const deleteAction = deleteArticle.bind(null, a.id as string)
                 return (
                   <tr key={a.id as string}>
-                    <td className="px-5 py-3 max-w-sm">
+                    <td className="px-5 py-3 w-0 min-w-0" style={{maxWidth: '380px'}}>
                       <div className="flex items-center gap-2">
                         {a.ai_generated && (
                           <span className="text-xs font-bold text-accent">AI</span>
