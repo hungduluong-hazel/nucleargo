@@ -89,3 +89,44 @@ body {
   border-top: 1px solid rgba(13, 31, 60, 0.08);
   margin: 2rem 0;
 }
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(13, 31, 60, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-body thead tr {
+  background-color: rgba(13, 31, 60, 0.05);
+}
+
+.article-body th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(13, 31, 60, 0.55);
+  border-bottom: 1px solid rgba(13, 31, 60, 0.1);
+  white-space: nowrap;
+}
+
+.article-body td {
+  padding: 0.65rem 1rem;
+  color: rgba(13, 31, 60, 0.75);
+  border-bottom: 1px solid rgba(13, 31, 60, 0.06);
+  vertical-align: top;
+}
+
+.article-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-body tbody tr:hover {
+  background-color: rgba(13, 31, 60, 0.02);
+}
