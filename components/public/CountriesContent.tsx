@@ -62,15 +62,51 @@ const FEATURED: FeaturedCountry[] = [
     partnerKey: 'countries_ng_partner',
     href: '/countries/nigeria',
   },
+  {
+    flag: 'https://flagcdn.com/w40/id.png',
+    nameKey: 'countries_id_name',
+    statusKey: 'countries_id_status',
+    plantsKey: 'countries_id_plants',
+    capacityKey: 'countries_id_capacity',
+    partnerKey: 'countries_id_partner',
+    href: '/countries/indonesia',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/ph.png',
+    nameKey: 'countries_ph_name',
+    statusKey: 'countries_ph_status',
+    plantsKey: 'countries_ph_plants',
+    capacityKey: 'countries_ph_capacity',
+    partnerKey: 'countries_ph_partner',
+    href: '/countries/philippines',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/bd.png',
+    nameKey: 'countries_bd_name',
+    statusKey: 'countries_bd_status',
+    plantsKey: 'countries_bd_plants',
+    capacityKey: 'countries_bd_capacity',
+    partnerKey: 'countries_bd_partner',
+    href: '/countries/bangladesh',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/kz.png',
+    nameKey: 'countries_kz_name',
+    statusKey: 'countries_kz_status',
+    plantsKey: 'countries_kz_plants',
+    capacityKey: 'countries_kz_capacity',
+    partnerKey: 'countries_kz_partner',
+    href: '/countries/kazakhstan',
+  },
 ]
 
 const COMING_SOON = [
-  { flag: 'https://flagcdn.com/w40/id.png', name: 'Indonesia' },
-  { flag: 'https://flagcdn.com/w40/ph.png', name: 'Philippines' },
   { flag: 'https://flagcdn.com/w40/sa.png', name: 'Saudi Arabia' },
-  { flag: 'https://flagcdn.com/w40/bd.png', name: 'Bangladesh' },
   { flag: 'https://flagcdn.com/w40/tr.png', name: 'Turkey' },
   { flag: 'https://flagcdn.com/w40/eg.png', name: 'Egypt' },
+  { flag: 'https://flagcdn.com/w40/ua.png', name: 'Ukraine' },
+  { flag: 'https://flagcdn.com/w40/ar.png', name: 'Argentina' },
+  { flag: 'https://flagcdn.com/w40/th.png', name: 'Thailand' },
 ]
 
 export default function CountriesContent() {
