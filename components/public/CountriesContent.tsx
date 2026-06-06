@@ -8,11 +8,11 @@ type TFn = (key: TranslationKey) => string
 
 type FeaturedCountry = {
   flag: string
-  nameKey: 'countries_vn_name' | 'countries_pl_name'
-  statusKey: 'countries_vn_status' | 'countries_pl_status'
-  plantsKey: 'countries_vn_plants' | 'countries_pl_plants'
-  capacityKey: 'countries_vn_capacity' | 'countries_pl_capacity'
-  partnerKey: 'countries_vn_partner' | 'countries_pl_partner'
+  nameKey: TranslationKey
+  statusKey: TranslationKey
+  plantsKey: TranslationKey
+  capacityKey: TranslationKey
+  partnerKey: TranslationKey
   href: string
 }
 
@@ -35,12 +35,36 @@ const FEATURED: FeaturedCountry[] = [
     partnerKey: 'countries_pl_partner',
     href: '/countries/poland',
   },
+  {
+    flag: 'https://flagcdn.com/w40/gh.png',
+    nameKey: 'countries_gh_name',
+    statusKey: 'countries_gh_status',
+    plantsKey: 'countries_gh_plants',
+    capacityKey: 'countries_gh_capacity',
+    partnerKey: 'countries_gh_partner',
+    href: '/countries/ghana',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/ke.png',
+    nameKey: 'countries_ke_name',
+    statusKey: 'countries_ke_status',
+    plantsKey: 'countries_ke_plants',
+    capacityKey: 'countries_ke_capacity',
+    partnerKey: 'countries_ke_partner',
+    href: '/countries/kenya',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/ng.png',
+    nameKey: 'countries_ng_name',
+    statusKey: 'countries_ng_status',
+    plantsKey: 'countries_ng_plants',
+    capacityKey: 'countries_ng_capacity',
+    partnerKey: 'countries_ng_partner',
+    href: '/countries/nigeria',
+  },
 ]
 
 const COMING_SOON = [
-  { flag: 'https://flagcdn.com/w40/gh.png', name: 'Ghana' },
-  { flag: 'https://flagcdn.com/w40/ke.png', name: 'Kenya' },
-  { flag: 'https://flagcdn.com/w40/ng.png', name: 'Nigeria' },
   { flag: 'https://flagcdn.com/w40/id.png', name: 'Indonesia' },
   { flag: 'https://flagcdn.com/w40/ph.png', name: 'Philippines' },
   { flag: 'https://flagcdn.com/w40/sa.png', name: 'Saudi Arabia' },
@@ -70,7 +94,7 @@ export default function CountriesContent() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-14">
         {/* Featured country cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURED.map((c) => (
             <FeaturedCard key={c.href} country={c} t={t} />
           ))}
@@ -129,6 +153,7 @@ function FeaturedCard({ country, t }: { country: FeaturedCountry; t: TFn }) {
         <DetailRow label={t('countries_capacity_label')} value={t(country.capacityKey)} />
         <DetailRow label={t('countries_partner_label')} value={t(country.partnerKey)} />
       </div>
+
 
       {/* CTA */}
       <div className="pt-1 border-t border-navy/6">

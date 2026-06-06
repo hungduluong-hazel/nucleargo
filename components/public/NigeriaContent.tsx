@@ -1,0 +1,113 @@
+import CountryProfileLayout from './CountryProfileLayout'
+import type { CountryProfileConfig } from './CountryProfileLayout'
+
+const config: CountryProfileConfig = {
+  flagUrl: 'https://flagcdn.com/w80/ng.png',
+  heroTitleKey: 'ng_hero_title',
+  heroSubKey: 'ng_hero_sub',
+  statPills: [
+    { key: 'ng_stat_phase',  icon: '🔬' },
+    { key: 'ng_stat_target', icon: '⚡' },
+    { key: 'ng_stat_invest', icon: '💰' },
+  ],
+  summaryRows: [
+    { labelKey: 'country_lbl_prog_status', valueKey: 'ng_val_prog_status' },
+    { labelKey: 'country_lbl_legal',       valueKey: 'ng_val_legal'       },
+    { labelKey: 'country_lbl_regulator',   valueKey: 'ng_val_regulator'   },
+    { labelKey: 'country_lbl_authority',   valueKey: 'ng_val_authority'   },
+    { labelKey: 'country_lbl_iaea_phase',  valueKey: 'ng_val_iaea_phase'  },
+    { labelKey: 'country_lbl_inir',        valueKey: 'ng_val_inir'        },
+    { labelKey: 'country_lbl_netzero',     valueKey: 'ng_val_netzero'     },
+  ],
+  challenges: ['ng_ch1', 'ng_ch2', 'ng_ch3', 'ng_ch4', 'ng_ch5', 'ng_ch6'],
+  plants: [
+    {
+      name: 'Geregu NPP (Kogi State)',
+      statusKey: 'country_badge_active',
+      statusVariant: 'active',
+      ownerKey:     'ng_geregu_owner',
+      techKey:      'ng_geregu_tech',
+      capacityKey:  'ng_geregu_capacity',
+      targetKey:    'ng_geregu_target',
+      phaseKey:     'ng_geregu_cur_phase',
+      milestoneKey: 'ng_geregu_milestone',
+      progress: 8,
+      partnerFlagUrl: 'https://flagcdn.com/w20/ru.png',
+      partnerKey: 'ng_geregu_partner_label',
+    },
+    {
+      name: 'Itu NPP (Akwa Ibom State)',
+      statusKey: 'country_badge_planned',
+      statusVariant: 'planned',
+      ownerKey:     'ng_itu_owner',
+      techKey:      'ng_itu_tech',
+      capacityKey:  'ng_itu_capacity',
+      targetKey:    'ng_itu_target',
+      phaseKey:     'ng_itu_cur_phase',
+      milestoneKey: 'ng_itu_milestone',
+      progress: 5,
+      partnerFlagUrl: 'https://flagcdn.com/w20/ru.png',
+      partnerKey: 'ng_itu_partner_label',
+    },
+  ],
+  partners: [
+    {
+      flagUrl: 'https://flagcdn.com/w20/ru.png',
+      nameKey: 'ng_ru_name',
+      roleKey: 'ng_ru_role',
+      orgsKey: 'ng_ru_orgs',
+      agreementKey: 'ng_ru_agreement',
+      statusVariant: 'active',
+      statusKey: 'country_badge_active',
+    },
+    {
+      flagUrl: 'https://flagcdn.com/w20/fr.png',
+      nameKey: 'ng_fr_name',
+      roleKey: 'ng_fr_role',
+      orgsKey: 'ng_fr_orgs',
+      agreementKey: 'ng_fr_agreement',
+      statusVariant: 'secondary',
+      statusKey: 'country_badge_secondary',
+    },
+    {
+      flagUrl: 'https://flagcdn.com/w20/kr.png',
+      nameKey: 'ng_kr_name',
+      roleKey: 'ng_kr_role',
+      orgsKey: 'ng_kr_orgs',
+      agreementKey: 'ng_kr_agreement',
+      statusVariant: 'secondary',
+      statusKey: 'country_badge_secondary',
+    },
+    {
+      flagUrl: 'https://flagcdn.com/w20/in.png',
+      nameKey: 'ng_in_name',
+      roleKey: 'ng_in_role',
+      orgsKey: 'ng_in_orgs',
+      agreementKey: 'ng_in_agreement',
+      statusVariant: 'secondary',
+      statusKey: 'country_badge_secondary',
+    },
+  ],
+  workforceTitleKey: 'ng_wf_card_title',
+  workforceBadge: 'NAEC / NNRA',
+  workforceStats: [
+    { labelKey: 'ng_wf_lbl1', valueKey: 'ng_wf_val1' },
+    { labelKey: 'ng_wf_lbl2', valueKey: 'ng_wf_val2' },
+    { labelKey: 'ng_wf_lbl3', valueKey: 'ng_wf_val3' },
+    { labelKey: 'ng_wf_lbl4', valueKey: 'ng_wf_val4' },
+  ],
+  workforceNotes: ['ng_wf_stat1', 'ng_wf_stat2', 'ng_wf_stat3'],
+  developments: [
+    { dateKey: 'ng_dev1_date', category: 'Policy',      catKey: 'country_cat_policy',      titleKey: 'ng_dev1_title', bodyKey: 'ng_dev1_body' },
+    { dateKey: 'ng_dev2_date', category: 'Regulatory',  catKey: 'country_cat_regulatory',  titleKey: 'ng_dev2_title', bodyKey: 'ng_dev2_body' },
+    { dateKey: 'ng_dev3_date', category: 'Technical',   catKey: 'country_cat_technical',   titleKey: 'ng_dev3_title', bodyKey: 'ng_dev3_body' },
+    { dateKey: 'ng_dev4_date', category: 'Partnership', catKey: 'country_cat_partnership', titleKey: 'ng_dev4_title', bodyKey: 'ng_dev4_body' },
+    { dateKey: 'ng_dev5_date', category: 'Technical',   catKey: 'country_cat_technical',   titleKey: 'ng_dev5_title', bodyKey: 'ng_dev5_body' },
+  ],
+  ctaTitleKey: 'ng_cta_title',
+  ctaBodyKey:  'ng_cta_body',
+}
+
+export default function NigeriaContent() {
+  return <CountryProfileLayout config={config} />
+}

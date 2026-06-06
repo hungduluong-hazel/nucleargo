@@ -306,6 +306,195 @@ async function main() {
     )
   }
   console.log(`✅  Infrastructure issues: ${issues.length} upserted`)
+  console.log(`✅  Infrastructure issues: ${issues.length} upserted`)
+
+  // ── GHANA / KENYA / NIGERIA ────────────────────────────────────────────────
+  console.log('\n⏳  Upserting African newcomer countries...')
+  const { data: africaCountries, error: acErr } = await db
+    .from('countries')
+    .upsert(
+      [
+        { code: 'gh', name_en: 'Ghana', name_vi: 'Ghana', flag: '🇬🇭', iaea_phase: 2, program_status: 'Active', first_plant_target: 2030, total_capacity_gw: 0.9, region: 'West Africa' },
+        { code: 'ke', name_en: 'Kenya', name_vi: 'Kenya', flag: '🇰🇪', iaea_phase: 2, program_status: 'Active', first_plant_target: 2034, total_capacity_gw: 2.0, region: 'East Africa' },
+        { code: 'ng', name_en: 'Nigeria', name_vi: 'Nigeria', flag: '🇳🇬', iaea_phase: 2, program_status: 'Active', first_plant_target: 2036, total_capacity_gw: 4.0, region: 'West Africa' },
+      ],
+      { onConflict: 'code' },
+    )
+    .select()
+  if (acErr) throw acErr
+  const gh = africaCountries!.find((c: { code: string }) => c.code === 'gh') as { id: string; code: string }
+  const ke = africaCountries!.find((c: { code: string }) => c.code === 'ke') as { id: string; code: string }
+  const ng = africaCountries!.find((c: { code: string }) => c.code === 'ng') as { id: string; code: string }
+  console.log(`✅  African countries: ${africaCountries!.length} upserted`)
+
+  // ── AFRICAN PLANTS ─────────────────────────────────────────────────────────
+  console.log('⏳  Upserting African plants...')
+  const africaPlants = [
+    { country_id: gh.id, code: 'GHNPP1', name_en: 'Ghana NPP (Nsuban)', owner_en: 'Nuclear Power Ghana (NPG)', technology: 'NuScale VOYGR-12 SMR', capacity: 924, target_completion: 2030, current_phase_en: 'Site Characterisation', progress_pct: 10, status: 'active', partner_country: 'United States', partner_org: 'NuScale / Regnum Technology Group' },
+    { country_id: ke.id, code: 'KENPP1', name_en: 'Kenya NPP (Siaya Region)', owner_en: 'NuPEA (Nuclear Power and Energy Agency)', technology: 'TBD — KAERI feasibility complete', capacity: 1000, target_completion: 2034, current_phase_en: 'Site Selection', progress_pct: 12, status: 'active', partner_country: 'South Korea', partner_org: 'KAERI' },
+    { country_id: ng.id, code: 'NGEREGU', name_en: 'Geregu Nuclear Power Plant', owner_en: 'NAEC / Federal Government of Nigeria', technology: 'TBD — SMR options under review', capacity: 1200, target_completion: 2036, current_phase_en: 'Site Characterisation', progress_pct: 8, status: 'active', partner_country: 'Multiple', partner_org: 'Russia / France / South Korea' },
+    { country_id: ng.id, code: 'NGITU', name_en: 'Itu Nuclear Power Plant', owner_en: 'NAEC / Federal Government of Nigeria', technology: 'TBD — SMR options under review', capacity: 1200, target_completion: 2038, current_phase_en: 'Preliminary Site Studies', progress_pct: 5, status: 'active', partner_country: 'Multiple', partner_org: 'Russia / France / South Korea' },
+  ]
+  const africaPlantIds: Record<string, string> = {}
+  for (const plant of africaPlants) {
+    const id = await upsertBy('plants', { code: plant.code }, plant as Record<string, unknown>)
+    africaPlantIds[plant.code] = id
+    console.log(`    ✅  ${plant.code}  ${plant.name_en}`)
+  }
+
+  // ── AFRICAN PLANT MILESTONES ───────────────────────────────────────────────
+  console.log('⏳  Upserting African plant milestones...')
+  const ghnpp1 = africaPlantIds['GHNPP1']
+  const kenpp1 = africaPlantIds['KENPP1']
+  const ngeregu = africaPlantIds['NGEREGU']
+  const ngitu = africaPlantIds['NGITU']
+  const africaMilestones = [
+    { plant_id: ghnpp1, title_en: 'Phase 2 entry declared by President Akufo-Addo', status: 'completed', completed_date: '2022-08-31', is_public: true, sort_order: 1 },
+    { plant_id: ghnpp1, title_en: 'NuScale VOYGR-12 deployment agreement signed', status: 'completed', completed_date: '2023-08-01', is_public: true, sort_order: 2 },
+    { plant_id: ghnpp1, title_en: 'IAEA SEED mission completed — Nsuban endorsed', status: 'completed', completed_date: '2025-02-28', is_public: true, sort_order: 3 },
+    { plant_id: ghnpp1, title_en: 'Full site characterisation study completed', status: 'pending', target_date: '2026-12-31', is_public: true, sort_order: 4 },
+    { plant_id: ghnpp1, title_en: 'Technology selection and financing framework agreed', status: 'pending', target_date: '2027-06-30', is_public: true, sort_order: 5 },
+    { plant_id: ghnpp1, title_en: 'Construction licence issued by NRA', status: 'pending', target_date: '2028-01-01', is_public: true, sort_order: 6 },
+    { plant_id: ghnpp1, title_en: 'First module concrete pour', status: 'pending', target_date: '2028-06-01', is_public: true, sort_order: 7 },
+    { plant_id: ghnpp1, title_en: 'First module commissioning and grid connection', status: 'pending', target_date: '2030-12-31', is_public: true, sort_order: 8 },
+    { plant_id: kenpp1, title_en: 'USA Strategic Civil Nuclear Cooperation MoU signed', status: 'completed', completed_date: '2022-12-01', is_public: true, sort_order: 1 },
+    { plant_id: kenpp1, title_en: 'NuPEA Strategic Plan 2023-2027 launched', status: 'completed', completed_date: '2024-03-01', is_public: true, sort_order: 2 },
+    { plant_id: kenpp1, title_en: 'KNRA and US NRC regulatory MoU signed', status: 'completed', completed_date: '2024-09-01', is_public: true, sort_order: 3 },
+    { plant_id: kenpp1, title_en: 'KAERI-NuPEA formal MoU and feasibility study delivered', status: 'completed', completed_date: '2025-09-01', is_public: true, sort_order: 4 },
+    { plant_id: kenpp1, title_en: 'Final site selected in Siaya region', status: 'in_progress', target_date: '2026-12-31', is_public: true, sort_order: 5 },
+    { plant_id: kenpp1, title_en: 'INIR Phase 2 review completed', status: 'pending', target_date: '2027-01-01', is_public: true, sort_order: 6 },
+    { plant_id: kenpp1, title_en: 'Financing and technology partner agreements finalised', status: 'pending', target_date: '2027-03-01', is_public: true, sort_order: 7 },
+    { plant_id: kenpp1, title_en: 'Plant commissioning and first power to grid', status: 'pending', target_date: '2034-12-31', is_public: true, sort_order: 8 },
+    { plant_id: ngeregu, title_en: 'NAEC-Rosatom construction partnership MoU signed', status: 'completed', completed_date: '2017-06-01', is_public: true, sort_order: 1 },
+    { plant_id: ngeregu, title_en: 'Geregu site confirmed and characterisation initiated', status: 'completed', completed_date: '2022-01-01', is_public: true, sort_order: 2 },
+    { plant_id: ngeregu, title_en: 'INIR Phase 2 mission approved for Q1 2027', status: 'in_progress', target_date: '2027-03-31', is_public: true, sort_order: 3 },
+    { plant_id: ngeregu, title_en: 'Technology selection decision (large reactor vs SMR)', status: 'pending', target_date: '2027-12-31', is_public: true, sort_order: 4 },
+    { plant_id: ngeregu, title_en: 'Financing framework and vendor contract agreed', status: 'pending', target_date: '2029-01-01', is_public: true, sort_order: 5 },
+    { plant_id: ngitu, title_en: 'Itu site preliminary studies initiated', status: 'completed', completed_date: '2021-06-01', is_public: true, sort_order: 1 },
+    { plant_id: ngitu, title_en: 'Bankable feasibility study submitted', status: 'in_progress', target_date: '2027-06-30', is_public: true, sort_order: 2 },
+    { plant_id: ngitu, title_en: 'Technology selection and financing agreed', status: 'pending', target_date: '2029-12-31', is_public: true, sort_order: 3 },
+  ]
+  for (const m of africaMilestones) {
+    await upsertBy('plant_milestones', { plant_id: m.plant_id, sort_order: m.sort_order }, m as Record<string, unknown>)
+  }
+  console.log(`✅  African plant milestones: ${africaMilestones.length} upserted`)
+
+  // ── AFRICAN KEY ORGANIZATIONS ──────────────────────────────────────────────
+  console.log('⏳  Upserting African key organizations...')
+  const africaOrgs = [
+    { country_id: gh.id, name: 'NPG', role_en: 'Nuclear Power Ghana — implementing agency for Ghana NPP', type: 'owner', sort_order: 1 },
+    { country_id: gh.id, name: 'GAEC', role_en: 'Ghana Atomic Energy Commission — research and human resource development', type: 'research', sort_order: 2 },
+    { country_id: gh.id, name: 'NRA Ghana', role_en: 'Nuclear Regulatory Authority — licensing and safety oversight', type: 'regulator', sort_order: 3 },
+    { country_id: gh.id, name: 'NuScale', flag: '🇺🇸', role_en: 'Technology provider — VOYGR-12 SMR design', type: 'contractor', sort_order: 4 },
+    { country_id: gh.id, name: 'Regnum Technology Group', flag: '🇺🇸', role_en: 'US project development partner for SMR deployment', type: 'contractor', sort_order: 5 },
+    { country_id: gh.id, name: 'IAEA', flag: '🌐', role_en: 'IAEA — safeguards, SEED mission, technical support', type: 'international', sort_order: 6 },
+    { country_id: ke.id, name: 'NuPEA', role_en: 'Nuclear Power and Energy Agency — implementing agency for Kenya NPP', type: 'owner', sort_order: 1 },
+    { country_id: ke.id, name: 'KNRA', role_en: 'Kenya Nuclear Regulatory Authority — licensing and safety oversight', type: 'regulator', sort_order: 2 },
+    { country_id: ke.id, name: 'KAERI', flag: '🇰🇷', role_en: 'Korea Atomic Energy Research Institute — feasibility study and technical partner', type: 'contractor', sort_order: 3 },
+    { country_id: ke.id, name: 'US NRC', flag: '🇺🇸', role_en: 'US Nuclear Regulatory Commission — regulatory cooperation partner', type: 'international', sort_order: 4 },
+    { country_id: ke.id, name: 'CGN Kenya', flag: '🇨🇳', role_en: 'China General Nuclear Power Corporation — training and site support (2015 MoU)', type: 'contractor', sort_order: 5 },
+    { country_id: ng.id, name: 'NAEC', role_en: 'Nigeria Atomic Energy Commission — national focal agency for nuclear development', type: 'owner', sort_order: 1 },
+    { country_id: ng.id, name: 'NNRA', role_en: 'Nigerian Nuclear Regulatory Authority — licensing and safety oversight', type: 'regulator', sort_order: 2 },
+    { country_id: ng.id, name: 'Rosatom Nigeria', flag: '🇷🇺', role_en: 'Primary technology partner — construction and operation MoU (2017)', type: 'contractor', sort_order: 3 },
+    { country_id: ng.id, name: 'EDF Nigeria', flag: '🇫🇷', role_en: 'French nuclear technology cooperation partner', type: 'contractor', sort_order: 4 },
+  ]
+  for (const org of africaOrgs) {
+    await upsertBy('key_organizations', { country_id: org.country_id, name: org.name }, org as Record<string, unknown>)
+  }
+  console.log(`✅  African key organizations: ${africaOrgs.length} upserted`)
+
+  // ── AFRICAN DEVELOPMENTS ───────────────────────────────────────────────────
+  console.log('⏳  Upserting African developments...')
+  const africaDevelopments = [
+    { country_id: gh.id, title_en: 'IAEA SEED Mission Endorses Nsuban as Preferred Nuclear Site', body_en: 'The IAEA conducted Ghana first-ever SEED review mission in February 2025, endorsing Nsuban in the Western Region as the preferred site, with Obotan as backup.', date: '2025-02-28', category: 'Technical', is_public: true },
+    { country_id: gh.id, title_en: 'Ghana Signs Nuclear Cooperation Agreements with South Korea and France', body_en: 'Ghana signed nuclear cooperation memoranda with South Korea and France in 2024, broadening technology options and training pathways.', date: '2024-11-01', category: 'Partnership', is_public: true },
+    { country_id: gh.id, title_en: 'NuScale VOYGR-12 Deployment Agreement Signed', body_en: 'The Government of Ghana and Regnum Technology Group signed an agreement to deploy a NuScale VOYGR-12 SMR at Nsuban.', date: '2023-08-01', category: 'Partnership', is_public: true },
+    { country_id: gh.id, title_en: 'President Declares Phase 2 Entry — Nuclear Power a National Priority', body_en: 'President Akufo-Addo officially declared Ghana entry into IAEA Phase 2 in August 2022.', date: '2022-08-31', category: 'Policy', is_public: true },
+    { country_id: gh.id, title_en: 'USA Designates Ghana as SMR Regional Hub in West Africa', body_en: 'The US State Department announced expanded civil nuclear cooperation with Ghana, designating it as a priority SMR deployment partner in West Africa.', date: '2024-03-01', category: 'Partnership', is_public: true },
+    { country_id: ke.id, title_en: 'President Ruto Announces 2,000 MWe Target and March 2027 Groundbreaking', body_en: 'President Ruto announced Kenya upgraded nuclear capacity target of 2,000 MWe at ICoNE 2026, with groundbreaking planned for March 2027 and commissioning by 2034.', date: '2026-03-01', category: 'Policy', is_public: true },
+    { country_id: ke.id, title_en: 'NuPEA and KAERI Sign Formal MoU — Feasibility Study Delivered', body_en: 'NuPEA signed a formal MoU with KAERI in September 2025. KAERI delivered a comprehensive feasibility study covering reactor design and workforce training requirements.', date: '2025-09-01', category: 'Partnership', is_public: true },
+    { country_id: ke.id, title_en: 'KNRA and US NRC Sign Regulatory Cooperation MoU', body_en: 'Kenya nuclear regulator (KNRA) and the US NRC signed a memorandum of understanding on regulatory collaboration and nuclear safety.', date: '2024-09-01', category: 'Regulatory', is_public: true },
+    { country_id: ke.id, title_en: 'NuPEA Launches Strategic Plan 2023-2027', body_en: 'NuPEA launched its six-priority Strategic Plan covering Nuclear Infrastructure Development, Stakeholder Engagement, Capacity Building, the Research Reactor Program, and Institutional Sustainability.', date: '2024-03-01', category: 'Policy', is_public: true },
+    { country_id: ke.id, title_en: 'Kenya and USA Sign Strategic Civil Nuclear Cooperation MoU', body_en: 'Kenya and the United States signed a Strategic Civil Nuclear Cooperation MoU in December 2022.', date: '2022-12-01', category: 'Partnership', is_public: true },
+    { country_id: ng.id, title_en: 'Minister of Power Advocates for SMRs over Large Reactors', body_en: 'Nigeria Minister of Power advised against the originally planned four 1,200 MWe units and instead advocated for Small Modular Reactors — a significant strategic pivot.', date: '2025-05-01', category: 'Policy', is_public: true },
+    { country_id: ng.id, title_en: 'INIR Phase 2 Mission Approved for Q1 2027', body_en: 'The IAEA approved an INIR Phase 2 review mission for Nigeria, scheduled for Q1 2027, recognising Nigeria progress in establishing nuclear infrastructure.', date: '2024-10-01', category: 'Regulatory', is_public: true },
+    { country_id: ng.id, title_en: 'Site Characterisation Advancing at Geregu and Itu', body_en: 'Site characterisation at Geregu (Kogi state) and Itu (Akwa Ibom state) is advancing toward a bankable feasibility study with environmental and seismic assessments underway.', date: '2024-06-01', category: 'Technical', is_public: true },
+    { country_id: ng.id, title_en: 'Nigeria Maintains Multi-Partner Nuclear Engagement Strategy', body_en: 'Nigeria has maintained active nuclear cooperation with Russia, France, South Korea, and India simultaneously, preserving technology options but complicating vendor selection.', date: '2023-03-01', category: 'Partnership', is_public: true },
+    { country_id: ng.id, title_en: 'NAEC Launches Multipurpose Research Reactor Programme', body_en: 'Nigeria Atomic Energy Commission launched a programme to develop a second research reactor by 2030 to support workforce training and isotope production.', date: '2022-11-01', category: 'Technical', is_public: true },
+  ]
+  for (const dev of africaDevelopments) {
+    await upsertBy('developments', { country_id: dev.country_id, title_en: dev.title_en }, dev as Record<string, unknown>)
+  }
+  console.log(`✅  African developments: ${africaDevelopments.length} upserted`)
+
+  // ── AFRICAN INFRASTRUCTURE ISSUES (19 per country) ─────────────────────────
+  console.log('⏳  Upserting African infrastructure issues...')
+  const africaIssues = [
+    // Ghana
+    { country_id: gh.id, number: 1,  title_en: 'National Position',              category: 'Legal & Regulatory', status: 'met',        sort_order: 1,  analysis_en: 'Ghana formally entered IAEA Phase 2 in August 2022, completing the national position requirement. The government commitment is unambiguous.' },
+    { country_id: gh.id, number: 2,  title_en: 'Nuclear Safety',                 category: 'Legal & Regulatory', status: 'partial',    sort_order: 2,  analysis_en: 'NRA has been established and is building capacity. Staffing and technical expertise for construction-phase oversight remain below what will be required.' },
+    { country_id: gh.id, number: 3,  title_en: 'Management',                     category: 'Management',         status: 'partial',    sort_order: 3,  analysis_en: 'NPG is the designated implementing agency with an established structure. Owner engineer capacity and project management systems need further development.' },
+    { country_id: gh.id, number: 4,  title_en: 'Funding and Financing',          category: 'Management',         status: 'not_met',    sort_order: 4,  analysis_en: 'No financing framework has been agreed for the Ghana NPP. Full project financing has not been secured.' },
+    { country_id: gh.id, number: 5,  title_en: 'Legislative Framework',          category: 'Legal & Regulatory', status: 'partial',    sort_order: 5,  analysis_en: 'The NRA Act (2015) provides a legal basis. Nuclear power-specific legislation covering liability, fuel cycle, and waste management requires enactment.' },
+    { country_id: gh.id, number: 6,  title_en: 'Safeguards',                     category: 'Legal & Regulatory', status: 'met',        sort_order: 6,  analysis_en: 'Ghana has a Comprehensive Safeguards Agreement and Additional Protocol in force. Safeguards implementation is in good standing.' },
+    { country_id: gh.id, number: 7,  title_en: 'Radiation Protection',           category: 'Safety & Security',  status: 'partial',    sort_order: 7,  analysis_en: 'A radiation protection framework exists under NRA. Emergency planning and off-site radiation monitoring for an NPP require significant development.' },
+    { country_id: gh.id, number: 8,  title_en: 'Electrical Grid',                category: 'Infrastructure',     status: 'partial',    sort_order: 8,  analysis_en: 'Grid reliability and stability upgrades are needed to safely integrate 924 MWe of SMR baseload. Interconnection studies have not been completed.' },
+    { country_id: gh.id, number: 9,  title_en: 'Human Resource Development',     category: 'Workforce',          status: 'in_progress', sort_order: 9,  analysis_en: 'Ghana is designated a regional SMR training hub. Current trained personnel (~150) represent a fraction of the ~500 needed for construction and operation.' },
+    { country_id: gh.id, number: 10, title_en: 'Stakeholder Involvement',        category: 'Management',         status: 'in_progress', sort_order: 10, analysis_en: 'Public engagement at Nsuban is ongoing. Community acceptance processes are active. National communication requires a structured programme.' },
+    { country_id: gh.id, number: 11, title_en: 'Site and Supporting Facilities', category: 'Infrastructure',     status: 'in_progress', sort_order: 11, analysis_en: 'IAEA SEED mission endorsed Nsuban. Detailed site characterisation is ongoing. Access infrastructure requires development.' },
+    { country_id: gh.id, number: 12, title_en: 'Environmental Protection',       category: 'Safety & Security',  status: 'in_progress', sort_order: 12, analysis_en: 'Environmental impact assessment work has commenced. Baseline studies are underway. Formal EIA submission to NRA is pending.' },
+    { country_id: gh.id, number: 13, title_en: 'Emergency Planning',             category: 'Safety & Security',  status: 'not_met',    sort_order: 13, analysis_en: 'No formal off-site emergency planning zones exist. Authorities have not received nuclear emergency training. This is a critical gap.' },
+    { country_id: gh.id, number: 14, title_en: 'Nuclear Security',               category: 'Safety & Security',  status: 'partial',    sort_order: 14, analysis_en: 'Ghana has ratified key nuclear security conventions. Physical protection regulations need strengthening to IAEA INFCIRC/225 Rev.5 standards.' },
+    { country_id: gh.id, number: 15, title_en: 'Nuclear Fuel Cycle',             category: 'Infrastructure',     status: 'partial',    sort_order: 15, analysis_en: 'NuScale fuel supply arrangements are part of the commercial framework. A national policy on spent fuel and long-term waste management must be developed.' },
+    { country_id: gh.id, number: 16, title_en: 'Radioactive Waste',              category: 'Infrastructure',     status: 'not_met',    sort_order: 16, analysis_en: 'No national radioactive waste management strategy has been designated. This must be established before construction licence issuance.' },
+    { country_id: gh.id, number: 17, title_en: 'Industrial Involvement',         category: 'Infrastructure',     status: 'partial',    sort_order: 17, analysis_en: 'No formal local content programme exists. SMR modular design may allow some construction-phase local participation.' },
+    { country_id: gh.id, number: 18, title_en: 'Procurement',                    category: 'Management',         status: 'partial',    sort_order: 18, analysis_en: 'Nuclear-grade procurement procedures are being developed. Vendor qualification and quality assurance systems need to be established.' },
+    { country_id: gh.id, number: 19, title_en: 'Owner/Operator',                 category: 'Management',         status: 'partial',    sort_order: 19, analysis_en: 'NPG is designated but has no operational nuclear experience. Developing operator capability through training and international secondments is the central challenge.' },
+    // Kenya
+    { country_id: ke.id, number: 1,  title_en: 'National Position',              category: 'Legal & Regulatory', status: 'met',        sort_order: 1,  analysis_en: 'Kenya commitment is formally established through the Nuclear Electricity Act (2019) and reaffirmed by President Ruto at ICoNE 2026.' },
+    { country_id: ke.id, number: 2,  title_en: 'Nuclear Safety',                 category: 'Legal & Regulatory', status: 'partial',    sort_order: 2,  analysis_en: 'KNRA has been established and is developing capacity with US NRC and IAEA support. A regulatory MoU with US NRC (2024) is accelerating capability building.' },
+    { country_id: ke.id, number: 3,  title_en: 'Management',                     category: 'Management',         status: 'partial',    sort_order: 3,  analysis_en: 'NuPEA has a credible structure and Strategic Plan. Owner engineer capability and project management systems need further development.' },
+    { country_id: ke.id, number: 4,  title_en: 'Funding and Financing',          category: 'Management',         status: 'not_met',    sort_order: 4,  analysis_en: 'No financing framework has been agreed. The project cannot proceed to construction without resolved financing for the $3.8B investment.' },
+    { country_id: ke.id, number: 5,  title_en: 'Legislative Framework',          category: 'Legal & Regulatory', status: 'met',        sort_order: 5,  analysis_en: 'The Nuclear Electricity Act (2019) provides a solid foundation. Secondary regulations and nuclear liability legislation may need updates.' },
+    { country_id: ke.id, number: 6,  title_en: 'Safeguards',                     category: 'Legal & Regulatory', status: 'met',        sort_order: 6,  analysis_en: 'Kenya has a Comprehensive Safeguards Agreement and Additional Protocol in force. Safeguards are in good standing.' },
+    { country_id: ke.id, number: 7,  title_en: 'Radiation Protection',           category: 'Safety & Security',  status: 'partial',    sort_order: 7,  analysis_en: 'Radiation protection framework is in place under KNRA. Emergency planning for an NPP requires significant development.' },
+    { country_id: ke.id, number: 8,  title_en: 'Electrical Grid',                category: 'Infrastructure',     status: 'partial',    sort_order: 8,  analysis_en: 'Kenya grid is growing (geothermal-led). Grid stability studies for integrating 1,000-2,000 MWe of nuclear baseload at Siaya are underway.' },
+    { country_id: ke.id, number: 9,  title_en: 'Human Resource Development',     category: 'Workforce',          status: 'in_progress', sort_order: 9,  analysis_en: 'KAERI has trained ~60 Kenyan engineers. NuPEA targets ~1,000 personnel before construction. University of Nairobi and JKUAT offer nuclear engineering degrees.' },
+    { country_id: ke.id, number: 10, title_en: 'Stakeholder Involvement',        category: 'Management',         status: 'in_progress', sort_order: 10, analysis_en: 'Community opposition at Kilifi forced relocation to Siaya. New engagement processes are active. National communication remains a priority gap.' },
+    { country_id: ke.id, number: 11, title_en: 'Site and Supporting Facilities', category: 'Infrastructure',     status: 'in_progress', sort_order: 11, analysis_en: 'Five candidate sites in Siaya are being evaluated following the shift from Kilifi. KAERI feasibility study methodology guides assessment.' },
+    { country_id: ke.id, number: 12, title_en: 'Environmental Protection',       category: 'Safety & Security',  status: 'in_progress', sort_order: 12, analysis_en: 'Environmental baseline studies are underway at candidate Siaya sites. A formal ESIA will be required before KNRA construction licence application.' },
+    { country_id: ke.id, number: 13, title_en: 'Emergency Planning',             category: 'Safety & Security',  status: 'not_met',    sort_order: 13, analysis_en: 'No formal off-site emergency planning zone exists. County and national emergency frameworks do not include nuclear emergency provisions.' },
+    { country_id: ke.id, number: 14, title_en: 'Nuclear Security',               category: 'Safety & Security',  status: 'partial',    sort_order: 14, analysis_en: 'Kenya has ratified nuclear security conventions. Physical protection regulations are being developed. Export control systems need strengthening.' },
+    { country_id: ke.id, number: 15, title_en: 'Nuclear Fuel Cycle',             category: 'Infrastructure',     status: 'partial',    sort_order: 15, analysis_en: 'Fuel arrangements depend on technology selection. KAERI feasibility includes fuel cycle considerations. Waste management policy must be developed.' },
+    { country_id: ke.id, number: 16, title_en: 'Radioactive Waste',              category: 'Infrastructure',     status: 'not_met',    sort_order: 16, analysis_en: 'No national radioactive waste management strategy has been adopted. A framework and repository siting process must be initiated during Phase 2.' },
+    { country_id: ke.id, number: 17, title_en: 'Industrial Involvement',         category: 'Infrastructure',     status: 'partial',    sort_order: 17, analysis_en: 'Kenya has a manufacturing sector but no nuclear-grade industrial base. A local content strategy for the NPP has not been developed.' },
+    { country_id: ke.id, number: 18, title_en: 'Procurement',                    category: 'Management',         status: 'partial',    sort_order: 18, analysis_en: 'NuPEA is developing procurement frameworks. Nuclear-grade vendor qualification and quality assurance systems must be established.' },
+    { country_id: ke.id, number: 19, title_en: 'Owner/Operator',                 category: 'Management',         status: 'partial',    sort_order: 19, analysis_en: 'NuPEA is designated but has no operational experience. KAERI training builds technical capability. Extended engagement with an experienced operator is required.' },
+    // Nigeria
+    { country_id: ng.id, number: 1,  title_en: 'National Position',              category: 'Legal & Regulatory', status: 'met',        sort_order: 1,  analysis_en: 'Nigeria commitment is long-established through NAEC (founded 1976). The SMR pivot in 2025 reflects adaptation, not withdrawal from the nuclear commitment.' },
+    { country_id: ng.id, number: 2,  title_en: 'Nuclear Safety',                 category: 'Legal & Regulatory', status: 'partial',    sort_order: 2,  analysis_en: 'NNRA is established and has NIRR-1 oversight experience. Regulatory capacity for large-scale commercial NPP oversight is substantially below what is required.' },
+    { country_id: ng.id, number: 3,  title_en: 'Management',                     category: 'Management',         status: 'partial',    sort_order: 3,  analysis_en: 'NAEC has a long institutional history but the SMR pivot has created strategic uncertainty. A clear owner engineer structure has not yet been formalised.' },
+    { country_id: ng.id, number: 4,  title_en: 'Funding and Financing',          category: 'Management',         status: 'not_met',    sort_order: 4,  analysis_en: 'No financing framework has been agreed. With multiple competing partnerships active, no single financing lead has been identified.' },
+    { country_id: ng.id, number: 5,  title_en: 'Legislative Framework',          category: 'Legal & Regulatory', status: 'partial',    sort_order: 5,  analysis_en: 'The Nuclear Safety and Radiation Protection Act (1995) predates modern IAEA standards and does not cover NPP licensing. New nuclear power legislation is required.' },
+    { country_id: ng.id, number: 6,  title_en: 'Safeguards',                     category: 'Legal & Regulatory', status: 'met',        sort_order: 6,  analysis_en: 'Nigeria has a Comprehensive Safeguards Agreement and Additional Protocol in force. NIRR-1 safeguards experience provides a positive foundation.' },
+    { country_id: ng.id, number: 7,  title_en: 'Radiation Protection',           category: 'Safety & Security',  status: 'partial',    sort_order: 7,  analysis_en: 'Radiation protection regulations exist under NNRA with NIRR-1 operational experience. Commercial NPP emergency planning scale far exceeds current capacity.' },
+    { country_id: ng.id, number: 8,  title_en: 'Electrical Grid',                category: 'Infrastructure',     status: 'partial',    sort_order: 8,  analysis_en: 'Nigeria grid reliability is poor. Total installed capacity (~13 GW) is well below demand. SMR phased deployment may better suit current grid conditions.' },
+    { country_id: ng.id, number: 9,  title_en: 'Human Resource Development',     category: 'Workforce',          status: 'in_progress', sort_order: 9,  analysis_en: 'Nigeria has the strongest nuclear research base in sub-Saharan Africa with NIRR-1 experience, 6+ university programmes, and 50+ IAEA fellows.' },
+    { country_id: ng.id, number: 10, title_en: 'Stakeholder Involvement',        category: 'Management',         status: 'partial',    sort_order: 10, analysis_en: 'Public awareness exists given the programme long history. Formal engagement programmes at Geregu and Itu communities are not documented.' },
+    { country_id: ng.id, number: 11, title_en: 'Site and Supporting Facilities', category: 'Infrastructure',     status: 'in_progress', sort_order: 11, analysis_en: 'Both Geregu and Itu are advancing toward bankable feasibility studies. Geotechnical and seismic surveys are underway. Supporting infrastructure needs are substantial.' },
+    { country_id: ng.id, number: 12, title_en: 'Environmental Protection',       category: 'Safety & Security',  status: 'in_progress', sort_order: 12, analysis_en: 'Environmental baseline studies are ongoing at both candidate sites. Formal EIAs must be completed and approved before construction licensing.' },
+    { country_id: ng.id, number: 13, title_en: 'Emergency Planning',             category: 'Safety & Security',  status: 'not_met',    sort_order: 13, analysis_en: 'No formal off-site emergency planning zones exist for Geregu or Itu. State and federal emergency agencies have no nuclear-specific training or procedures.' },
+    { country_id: ng.id, number: 14, title_en: 'Nuclear Security',               category: 'Safety & Security',  status: 'partial',    sort_order: 14, analysis_en: 'Nigeria has ratified the CPPNM Amendment. Physical protection regulations exist for NIRR-1 but need substantial upgrading for a commercial NPP environment.' },
+    { country_id: ng.id, number: 15, title_en: 'Nuclear Fuel Cycle',             category: 'Infrastructure',     status: 'partial',    sort_order: 15, analysis_en: 'Technology selection is unresolved, making fuel cycle planning premature. A vendor-neutral fuel cycle policy and spent fuel management strategy must be developed.' },
+    { country_id: ng.id, number: 16, title_en: 'Radioactive Waste',              category: 'Infrastructure',     status: 'not_met',    sort_order: 16, analysis_en: 'No national radioactive waste management strategy covering power plant volumes has been adopted. Existing policy covers only research reactor and medical sources.' },
+    { country_id: ng.id, number: 17, title_en: 'Industrial Involvement',         category: 'Infrastructure',     status: 'partial',    sort_order: 17, analysis_en: 'Nigeria has a manufacturing sector capable of some construction-phase participation. No formal local content programme for nuclear has been established.' },
+    { country_id: ng.id, number: 18, title_en: 'Procurement',                    category: 'Management',         status: 'not_met',    sort_order: 18, analysis_en: 'Nuclear-grade procurement procedures have not been established. With technology selection unresolved, a coherent procurement framework cannot yet be developed.' },
+    { country_id: ng.id, number: 19, title_en: 'Owner/Operator',                 category: 'Management',         status: 'partial',    sort_order: 19, analysis_en: 'NAEC has only research reactor operational experience via NIRR-1. Commercial NPP operator development requires a dedicated international training programme — not yet formalised.' },
+  ]
+  for (const issue of africaIssues) {
+    await upsertBy('infrastructure_issues', { country_id: issue.country_id, number: issue.number }, issue as Record<string, unknown>)
+  }
+  console.log(`✅  African infrastructure issues: ${africaIssues.length} upserted`)
 
   console.log('\n🎉  Seed complete!')
 }
