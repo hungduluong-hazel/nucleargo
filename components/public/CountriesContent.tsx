@@ -125,10 +125,18 @@ const FEATURED: FeaturedCountry[] = [
     partnerKey: 'countries_eg_partner',
     href: '/countries/egypt',
   },
+  {
+    flag: 'https://flagcdn.com/w40/ua.png',
+    nameKey: 'countries_ua_name',
+    statusKey: 'countries_ua_status',
+    plantsKey: 'countries_ua_plants',
+    capacityKey: 'countries_ua_capacity',
+    partnerKey: 'countries_ua_partner',
+    href: '/countries/ukraine',
+  },
 ]
 
 const COMING_SOON = [
-  { flag: 'https://flagcdn.com/w40/ua.png', name: 'Ukraine' },
   { flag: 'https://flagcdn.com/w40/ar.png', name: 'Argentina' },
   { flag: 'https://flagcdn.com/w40/th.png', name: 'Thailand' },
 ]
