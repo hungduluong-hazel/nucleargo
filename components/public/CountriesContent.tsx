@@ -134,12 +134,27 @@ const FEATURED: FeaturedCountry[] = [
     partnerKey: 'countries_ua_partner',
     href: '/countries/ukraine',
   },
+  {
+    flag: 'https://flagcdn.com/w40/ar.png',
+    nameKey: 'countries_ar_name',
+    statusKey: 'countries_ar_status',
+    plantsKey: 'countries_ar_plants',
+    capacityKey: 'countries_ar_capacity',
+    partnerKey: 'countries_ar_partner',
+    href: '/countries/argentina',
+  },
+  {
+    flag: 'https://flagcdn.com/w40/th.png',
+    nameKey: 'countries_th_name',
+    statusKey: 'countries_th_status',
+    plantsKey: 'countries_th_plants',
+    capacityKey: 'countries_th_capacity',
+    partnerKey: 'countries_th_partner',
+    href: '/countries/thailand',
+  },
 ]
 
-const COMING_SOON = [
-  { flag: 'https://flagcdn.com/w40/ar.png', name: 'Argentina' },
-  { flag: 'https://flagcdn.com/w40/th.png', name: 'Thailand' },
-]
+const COMING_SOON: { flag: string; name: string }[] = []
 
 export default function CountriesContent() {
   const { t } = useLanguage()
@@ -169,25 +184,27 @@ export default function CountriesContent() {
         </div>
 
         {/* Coming soon grid */}
-        <div>
-          <h2 className="text-sm font-semibold text-navy/50 uppercase tracking-wider mb-5">
-            {t('countries_more_title')}
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-            {COMING_SOON.map(({ flag, name }) => (
-              <div
-                key={name}
-                className="bg-white rounded-xl border border-navy/8 px-4 py-5 flex flex-col items-center gap-2.5 text-center"
-              >
-                <img src={flag} alt={name} className="w-10 h-auto mx-auto mb-2" />
-                <p className="text-sm font-semibold text-navy leading-snug">{name}</p>
-                <span className="text-xs font-medium text-navy/40 bg-navy/5 rounded-full px-2.5 py-0.5">
-                  {t('countries_coming_soon_badge')}
-                </span>
-              </div>
-            ))}
+        {COMING_SOON.length > 0 && (
+          <div>
+            <h2 className="text-sm font-semibold text-navy/50 uppercase tracking-wider mb-5">
+              {t('countries_more_title')}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+              {COMING_SOON.map(({ flag, name }) => (
+                <div
+                  key={name}
+                  className="bg-white rounded-xl border border-navy/8 px-4 py-5 flex flex-col items-center gap-2.5 text-center"
+                >
+                  <img src={flag} alt={name} className="w-10 h-auto mx-auto mb-2" />
+                  <p className="text-sm font-semibold text-navy leading-snug">{name}</p>
+                  <span className="text-xs font-medium text-navy/40 bg-navy/5 rounded-full px-2.5 py-0.5">
+                    {t('countries_coming_soon_badge')}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
