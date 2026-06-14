@@ -7,7 +7,7 @@ import type { TranslationKey } from '@/lib/i18n/en'
 type TFn = (key: TranslationKey) => string
 type DevCategory = 'Policy' | 'Technical' | 'Partnership' | 'Regulatory'
 type PlantStatus = 'active' | 'planned'
-type PartnerStatus = 'active' | 'secondary'
+type PartnerStatus = 'active' | 'secondary' | 'withdrawn'
 
 // ─── Data types ──────────────────────────────────────────────────────────────
 
@@ -126,8 +126,8 @@ const PARTNERS: PartnerData[] = [
     roleKey: 'pl_kr_role',
     techKey: 'pl_kr_tech',
     agreementKey: 'pl_kr_agreement',
-    statusVariant: 'secondary',
-    statusKey: 'pl_badge_secondary',
+    statusVariant: 'withdrawn',
+    statusKey: 'pl_badge_withdrawn',
   },
   {
     flagUrl: 'https://flagcdn.com/w20/fr.png',
@@ -141,7 +141,7 @@ const PARTNERS: PartnerData[] = [
 ]
 
 const DEVELOPMENTS: DevData[] = [
-  { dateKey: 'pl_dev1_date', category: 'Partnership', catKey: 'pl_cat_partnership', titleKey: 'pl_dev1_title', bodyKey: 'pl_dev1_body' },
+  { dateKey: 'pl_dev1_date', category: 'Regulatory',  catKey: 'pl_cat_regulatory',  titleKey: 'pl_dev1_title', bodyKey: 'pl_dev1_body' },
   { dateKey: 'pl_dev2_date', category: 'Technical',   catKey: 'pl_cat_technical',   titleKey: 'pl_dev2_title', bodyKey: 'pl_dev2_body' },
   { dateKey: 'pl_dev3_date', category: 'Policy',      catKey: 'pl_cat_policy',      titleKey: 'pl_dev3_title', bodyKey: 'pl_dev3_body' },
   { dateKey: 'pl_dev4_date', category: 'Technical',   catKey: 'pl_cat_technical',   titleKey: 'pl_dev4_title', bodyKey: 'pl_dev4_body' },
@@ -169,6 +169,7 @@ const PLANT_BAR_STYLES: Record<PlantStatus, string> = {
 const PARTNER_BADGE_STYLES: Record<PartnerStatus, string> = {
   active:    'bg-emerald-50 text-emerald-700',
   secondary: 'bg-amber-50 text-amber-700',
+  withdrawn: 'bg-gray-100 text-gray-500',
 }
 
 // ─── Main export ─────────────────────────────────────────────────────────────
