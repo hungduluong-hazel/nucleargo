@@ -157,11 +157,20 @@ function DimensionCard({ dim }: { dim: FrameworkDimension }) {
       </div>
       <p className="text-sm font-medium text-navy/80 leading-snug">{dim.finding}</p>
       <p className="text-xs text-navy/55 leading-relaxed">{dim.detail}</p>
-      {!dim.verified && (
+      {dim.verified && dim.sourceUrl ? (
+        <a
+          href={dim.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="self-start mt-1 text-xs font-medium text-accent hover:underline"
+        >
+          Source: {dim.sourceLabel}
+        </a>
+      ) : !dim.verified ? (
         <span className="self-start mt-1 text-[10px] font-semibold uppercase tracking-wide text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
           Needs verification
         </span>
-      )}
+      ) : null}
     </div>
   )
 }
