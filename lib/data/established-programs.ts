@@ -200,19 +200,23 @@ export const unitedStatesVogtle: EstablishedProgramConfig = {
   lifecycleLiability: [
     {
       label: 'Fuel cycle economics',
-      rating: 'strength',
-      finding: 'No unusual fuel-cycle exposure',
+      rating: 'mixed',
+      finding: 'Fuel fabricated domestically; enrichment source not independently confirmed',
       detail:
-        'Standard US fuel-cycle arrangement with diversified global enrichment supply — not researched in depth for this entry; treat as a low-confidence placeholder rather than a checked finding.',
-      verified: false,
+        "Initial and reload fuel for both units is fabricated at Westinghouse's Columbia Fuel Fabrication Facility in South Carolina, keeping fabrication onshore. This research did not confirm the specific enrichment supplier(s) feeding that fuel — a gap worth closing given the geopolitical sensitivity of global enrichment supply flagged in the framework doc's fuel-cycle dimension.",
+      verified: true,
+      sourceLabel: 'Westinghouse — Congratulates Vogtle Team on Start of Fuel Load for Unit 4',
+      sourceUrl: 'https://info.westinghousenuclear.com/news/westinghouse-congratulates-vogtle-team-on-start-of-fuel-load-for-unit-4',
     },
     {
       label: 'Decommissioning fund adequacy',
       rating: 'mixed',
-      finding: 'Subject to standard NRC-mandated decommissioning trust requirements',
+      finding: 'Trust mechanism confirmed for Units 1 & 2; Units 3 & 4-specific balance not yet published',
       detail:
-        'US reactor owners must maintain funded decommissioning trusts under NRC regulation. Vogtle 3 & 4-specific trust funding levels have not been located/verified for this entry yet.',
-      verified: false,
+        "Georgia Power's external decommissioning trust for Vogtle Units 1 & 2 held $460 million as of December 31, 2021 (per SEC filings), confirming the NRC-mandated funding mechanism is real and active at this plant. A Units 3 & 4-specific trust balance wasn't found in this search — plausible since both units only reached commercial operation in 2023–2024, so their trusts would still be in early accumulation.",
+      verified: true,
+      sourceLabel: 'SEC filing — Southern Company decommissioning trust disclosure',
+      sourceUrl: 'https://www.sec.gov/Archives/edgar/data/1004155/000009212222000003/R158.htm',
     },
   ],
   contextModifier: {
