@@ -16,16 +16,46 @@ established alike. Newcomers are the ones asking; established nations are
 where the evidence lives. The platform's value is putting both in the same
 dataset.
 
-Two distinct sub-questions sit inside "economically without going bankrupt,"
-and they should stay separate rather than collapsing into one cost number:
+Three distinct sub-questions sit inside "economically without going
+bankrupt," and they should stay separate rather than collapsing into one cost
+number:
 
+0. **Pre-FID viability** — does this program ever reach Final Investment
+   Decision (the binding commitment to build) with a credible vendor,
+   financing package, site, and regulator in place — or does it stall or
+   reverse before a shovel ever moves?
 1. **Construction-phase solvency** — will this specific project stay on
    budget and schedule and actually get finished?
 2. **Lifecycle economic resilience** — once built, is the program
    economically sound over the plant's 60+ year life (fuel, waste,
    decommissioning)?
 
-A project can be strong on one and exposed on the other.
+A project can be strong on one and exposed on another. Most newcomer
+programs currently tracked on nucleargo are still answering question 0 —
+Groups A–D below assume FID has already happened.
+
+## Group 0 — Pre-Construction Readiness (Pre-FID)
+
+*Determines whether a program ever reaches Final Investment Decision. This is
+where most newcomer projects actually die — reversed, stalled, or restarted
+before construction risk (Group A) even becomes relevant.*
+
+| Dimension | What it captures |
+|---|---|
+| Political commitment durability (pre-FID) | Does the decision to go nuclear survive elections, referenda, and fiscal cycles long enough to reach FID? (Distinct from Group B's political durability, which assumes FID already happened.) |
+| Vendor and technology selection | Has a reactor design and vendor actually been locked in, or is the program still comparing options — with real risk of a late reset (e.g. a bidder withdrawing after years of work) |
+| Financing arrangement pre-FID | Can the country close financing — sovereign guarantees, export credit agencies, multilateral development banks — before committing capital? |
+| Regulatory and legal readiness | Does a nuclear regulator with real legal authority and technical capacity exist? Are safeguards agreements and bilateral nuclear cooperation agreements (e.g. a 123 Agreement) in place? |
+| Site licensing and environmental approval | Environmental impact assessment, public consultation, land acquisition, seismic/hydrological surveys — a site can be rejected mid-process |
+| Grid readiness | Can the national grid absorb a large single unit (roughly 5–10% of total grid capacity is a common ceiling), or does this force a rethink toward SMRs or grid reinforcement first? |
+
+**This isn't a new data model to build from scratch.** The IAEA's Milestones
+Approach already formalizes this phase as the "19 Infrastructure Issues," and
+nucleargo already tracks it for newcomer countries via the `infrastructure_issues`
+table and the IAEA-phase country profiles (`CountryProfileLayout.tsx`). Group
+0 here is the conceptual bridge, not a duplicate schema — a project's full
+record should link its pre-FID newcomer-tracker data to its post-FID Groups
+A–D data once (if) it reaches construction.
 
 ## Group A — Build-Phase Execution Risk
 
@@ -99,6 +129,15 @@ financing vs. merchant exposure" — and see which dimensions actually
 correlate with staying on budget, rather than just seeing a cost league
 table.
 
+Group 0 (pre-FID) data already has a home in the existing `infrastructure_issues`
+and `plant_milestones` tables — it doesn't need a new schema, just an explicit
+link from a newcomer program's record to its Groups A–D record once (if) it
+reaches FID. That link is what turns nucleargo from two separate products
+(newcomer tracker + established-nation benchmarks) into one continuous
+lifecycle view: a newcomer country should eventually be able to see its own
+Group 0 status *and* the Group A–D outcomes of every comparable country that
+made it past FID, in one place.
+
 ## Open items
 
 - No single public database covers all of these dimensions across countries —
@@ -108,7 +147,17 @@ table.
 - Need to decide: quantitative fields where data exists, qualitative
   ratings/tags where it doesn't, or both with a confidence/sourcing flag per
   field (similar to the verification convention already used in
-  `supply-chain-directory-draft.md`).
+  `supply-chain-directory-draft.md`, and now demonstrated per-dimension in
+  `lib/data/established-programs.ts`).
 - Country scope for v1 of the comparison set still open — established nuclear
   nations (US, France, UK, Canada, South Korea, Japan, China, Russia, India,
   Sweden, etc.) vs. phasing in a subset first.
+- Group A–D dimensions are the best-evidenced set from one populated case
+  (Vogtle), not a closed taxonomy — module/component supply chain quality,
+  transmission/grid buildout cost, long-horizon interest-rate risk, and
+  insurance/liability regime are currently folded into other dimensions
+  rather than broken out; revisit once a second country (e.g. South Korea) is
+  populated.
+- Group 0 dimensions are drafted from general knowledge of the IAEA Milestones
+  Approach and are not yet individually sourced/verified the way the Vogtle
+  entry's Groups A–C are.
