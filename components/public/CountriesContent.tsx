@@ -170,6 +170,12 @@ const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
     tagline: 'Plant Vogtle Units 3 & 4 — AP1000',
     href: '/countries/united-states',
   },
+  {
+    flag: 'https://flagcdn.com/w40/kr.png',
+    name: 'South Korea',
+    tagline: 'APR1400 domestic fleet — 4 units',
+    href: '/countries/south-korea',
+  },
 ]
 
 export default function CountriesContent() {

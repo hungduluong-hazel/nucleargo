@@ -249,4 +249,196 @@ export const unitedStatesVogtle: EstablishedProgramConfig = {
     "Register to benchmark your project's execution, financing, and lifecycle risk against Vogtle and other established nuclear builds.",
 }
 
-export const establishedPrograms: EstablishedProgramConfig[] = [unitedStatesVogtle]
+export const southKoreaApr1400: EstablishedProgramConfig = {
+  flagUrl: 'https://flagcdn.com/w80/kr.png',
+  slug: 'south-korea',
+  countryName: 'South Korea',
+  heroTitle: 'South Korea — APR1400 Domestic Fleet',
+  heroSub:
+    "The standard 'it can be done cheaply' reference case in nuclear economics — four APR1400 units built at roughly a sixth of Vogtle's cost per kW, though not without its own political interruption.",
+  badge: 'Benchmark Program — Established Nation',
+  statPills: [
+    { icon: '💰', label: '~$2,300/kW domestic overnight cost — cheapest in the OECD' },
+    { icon: '⏱️', label: '4 APR1400 units completed 2016–2023' },
+    { icon: '⚡', label: '~5,600 MW combined domestic APR1400 fleet' },
+  ],
+  summaryRows: [
+    { label: 'Reactor design', value: 'KEPCO/KHNP APR1400 × 4 (domestic)' },
+    { label: 'Location', value: 'Shin-Kori (Busan) and Shin-Hanul (Uljin), South Korea' },
+    { label: 'Lead owner/operator', value: 'Korea Hydro & Nuclear Power (KHNP)' },
+    { label: 'Shin-Kori 3 commercial operation', value: 'December 2016' },
+    { label: 'Shin-Kori 4 commercial operation', value: 'September 2019' },
+    { label: 'Shin-Hanul 1 grid connection', value: 'June 2023' },
+    { label: 'Shin-Hanul 2 grid connection', value: 'December 2023' },
+    { label: 'Export reference', value: 'Barakah, UAE — 4 APR1400 units, Unit 1 online March 2020' },
+  ],
+  buildPhaseRisk: [
+    {
+      label: 'Design maturity before construction',
+      rating: 'strength',
+      finding: 'APR1400 is an evolutionary design, not a clean-sheet first build',
+      detail:
+        "APR1400 was developed as an evolution of Korea's earlier standardized OPR1000 / Korean Standard Nuclear Plant fleet built continuously from the 1980s onward, rather than a first-of-a-kind design like Vogtle's AP1000 was for the US. Not independently re-confirmed this pass — flagged for a direct citation.",
+      verified: false,
+    },
+    {
+      label: 'Reference plant vs. first-of-a-kind',
+      rating: 'strength',
+      finding: "Shin-Kori 3 was the world's first APR1400 to reach commercial operation",
+      detail:
+        'Shin-Kori 3 entered commercial operation in December 2016, ahead of the export Barakah Unit 1 (March 2020) — meaning by the time Korea built its second and third domestic APR1400 units, and exported the design to the UAE, there was already an operating reference plant to draw on.',
+      verified: true,
+      sourceLabel: 'World Nuclear News — First Korean APR-1400 enters commercial operation',
+      sourceUrl: 'https://world-nuclear-news.org/Articles/First-Korean-APR-1400-enters-commercial-operation',
+    },
+    {
+      label: 'Fleet effect / repetition',
+      rating: 'strength',
+      finding: 'Four domestic units plus four export units on the same design',
+      detail:
+        'Shin-Kori 3 (2016), Shin-Kori 4 (2019), Shin-Hanul 1 (2023), and Shin-Hanul 2 (2023) domestically, plus Barakah 1-4 in the UAE (2020, 2021, 2022, 2024) — the clearest large-scale repetition effect available in this framework so far, versus Vogtle\'s two-unit case.',
+      verified: true,
+      sourceLabel: 'World Nuclear News — Fourth Korean APR-1400 begins commercial operation',
+      sourceUrl: 'https://www.world-nuclear-news.org/articles/fourth-korean-apr-1400-begins-commercial-operation',
+    },
+    {
+      label: 'Contracting and risk allocation',
+      rating: 'strength',
+      finding: 'Fixed-price EPC, executed by an integrated state-linked builder',
+      detail:
+        "KHNP builds domestically as a specialized, continuously-operating nuclear utility rather than contracting out to an independent EPC vendor that can go bankrupt mid-project. For export, KEPCO secured a fixed-price EPC contract for Barakah's four units, initially valued at $20.4 billion.",
+      verified: true,
+      sourceLabel: 'ENEC — Financial Close for Barakah Nuclear Energy Plant',
+      sourceUrl: 'https://www.enec.gov.ae/news/latest-news/enec-and-kepco-announce-financial-close-for-barakah-nuclear-energy-plant/',
+    },
+    {
+      label: 'Site selection and site-specific engineering',
+      rating: 'strength',
+      finding: 'Both sites are expansions of existing multi-unit nuclear plants',
+      detail:
+        '"Shin-Kori" and "Shin-Hanul" translate to "New Kori" and "New Hanul" — both are expansions of already-operating nuclear sites, similar to Vogtle\'s brownfield advantage. Not independently re-confirmed this pass beyond the site naming convention.',
+      verified: false,
+    },
+    {
+      label: 'Owner project-management capability',
+      rating: 'strength',
+      finding: 'KHNP is a continuous, specialized nuclear builder-operator',
+      detail:
+        "Unlike Southern Company's 30-year gap before Vogtle, KHNP (part of the state-owned KEPCO group) has built and operated reactors continuously since the 1970s-80s — an unbroken institutional pipeline rather than a one-off mobilization.",
+      verified: false,
+    },
+    {
+      label: 'Domestic workforce and human capital',
+      rating: 'strength',
+      finding: 'A continuous construction pipeline, not a rebuilt-from-scratch one',
+      detail:
+        "Korea's steady, decades-long build-out kept its nuclear-construction workforce and supply chain active continuously, avoiding the atrophy-and-rebuild problem that drove craft-labor attrition and rework at Vogtle.",
+      verified: false,
+    },
+    {
+      label: 'Currency and inflation exposure',
+      rating: 'mixed',
+      finding: 'Domestic builds in KRW; export contracts carry different exposure',
+      detail:
+        'Domestic units avoid FX risk entirely (KRW-denominated). Barakah, by contrast, is a USD-denominated export contract for KHNP/KEPCO — a different risk profile than the domestic fleet, and worth tracking separately if Barakah becomes its own entry.',
+      verified: false,
+    },
+  ],
+  financeability: [
+    {
+      label: 'Financing structure and cost of capital',
+      rating: 'strength',
+      finding: 'State-linked financing lowers cost of capital relative to Vogtle',
+      detail:
+        'KHNP is majority state-owned (via the KEPCO group), giving it access to lower-cost, government-backed financing for domestic builds than a mixed private/regulated-utility structure like Georgia Power\'s. Not independently re-confirmed this pass with a specific financing citation.',
+      verified: false,
+    },
+    {
+      label: 'Revenue and market structure',
+      rating: 'strength',
+      finding: 'Centrally planned, state-dominated electricity market',
+      detail:
+        "Korea's electricity sector is centrally planned with KEPCO as the dominant purchaser/distributor, giving KHNP's nuclear output a predictable revenue path — structurally different from Georgia's regulated-but-still-contested rate case process.",
+      verified: false,
+    },
+    {
+      label: 'Regulatory stability during construction',
+      rating: 'mixed',
+      finding: 'Not immune to disruption — Shin-Hanul was delayed by policy reversal',
+      detail:
+        "Construction on the first Shin-Hanul units began in 2012 with a 2017 target, but was delayed for years as South Korea's government pursued a formal nuclear phase-out policy (2017 onward) before a later administration reversed course. This is a real regulatory-stability hit, not a flawless record.",
+      verified: true,
+      sourceLabel: 'World Nuclear Association — Shin Hanul 1 reactor database',
+      sourceUrl: 'https://world-nuclear.org/nuclear-reactor-database/details/Shin-Hanul-1',
+    },
+    {
+      label: 'Political and public acceptance durability',
+      rating: 'mixed',
+      finding: "Korea has its own cancellation scare — it just didn't stick",
+      detail:
+        "The 2017 Moon Jae-in administration adopted a formal nuclear phase-out policy that paused and delayed projects including Shin-Hanul, before the following administration reversed it and resumed pro-nuclear policy. Worth citing as a counter-example to any 'Korea is immune to political risk' framing — it isn't, this time the reversal just favored continuation.",
+      verified: true,
+      sourceLabel: 'World Nuclear Association — Shin Hanul 1 reactor database',
+      sourceUrl: 'https://world-nuclear.org/nuclear-reactor-database/details/Shin-Hanul-1',
+    },
+  ],
+  lifecycleLiability: [
+    {
+      label: 'Fuel cycle economics',
+      rating: 'weakness',
+      finding: 'Fully import-dependent for enriched fuel by treaty, not just economics',
+      detail:
+        "South Korea has no domestic uranium reserves and is barred from domestic enrichment or reprocessing under its bilateral nuclear cooperation agreement with the US — a structural fuel-cycle exposure that persists despite Korea's strong construction-cost performance. Not independently re-confirmed this pass — flagged for a direct citation on the current agreement terms.",
+      verified: false,
+    },
+    {
+      label: 'Decommissioning fund adequacy',
+      rating: 'mixed',
+      finding: 'Not researched for this entry',
+      detail: 'Korea requires decommissioning funding provisions; specific trust/fund figures for the APR1400 fleet have not been located for this entry yet.',
+      verified: false,
+    },
+  ],
+  contextModifier: {
+    label: 'Energy security context: near-total import dependence, nuclear as a core pillar',
+    detail:
+      "South Korea has essentially no domestic fossil fuel or uranium resources and imports the large majority of its primary energy — nuclear isn't a discretionary choice weighed purely against cheaper alternatives, it's a core energy-security pillar. That's a sharply different rationale than the US's resource-rich context, and should reweight how directly Korea's cost performance is read: the same government commitment that delivered a low cost per kW also reflects a country with fewer alternative paths to energy security than the US has.",
+  },
+  sources: [
+    {
+      label: 'World Nuclear News — First Korean APR-1400 enters commercial operation',
+      url: 'https://world-nuclear-news.org/Articles/First-Korean-APR-1400-enters-commercial-operation',
+    },
+    {
+      label: 'World Nuclear News — Second APR-1400 unit starts commercial operation',
+      url: 'https://www.world-nuclear-news.org/Articles/Second-APR-1400-unit-starts-commercial-operation',
+    },
+    {
+      label: 'World Nuclear News — Fourth Korean APR-1400 begins commercial operation',
+      url: 'https://www.world-nuclear-news.org/articles/fourth-korean-apr-1400-begins-commercial-operation',
+    },
+    {
+      label: 'World Nuclear Association — Nuclear Power in South Korea',
+      url: 'https://world-nuclear.org/information-library/country-profiles/countries-o-s/south-korea',
+    },
+    {
+      label: 'World Nuclear Association — Shin Hanul 1 reactor database',
+      url: 'https://world-nuclear.org/nuclear-reactor-database/details/Shin-Hanul-1',
+    },
+    {
+      label: 'ENEC — Financial Close for Barakah Nuclear Energy Plant',
+      url: 'https://www.enec.gov.ae/news/latest-news/enec-and-kepco-announce-financial-close-for-barakah-nuclear-energy-plant/',
+    },
+    {
+      label: 'World Nuclear Association — Nuclear Power in the United Arab Emirates',
+      url: 'https://world-nuclear.org/information-library/country-profiles/countries-t-z/united-arab-emirates',
+    },
+  ],
+  verificationNote:
+    '5 of 14 dimensions carry a direct source link so far (reference plant, fleet effect, contracting, regulatory stability, political durability — including the honest counter-example of the 2017 phase-out policy delaying Shin-Hanul). The remaining 9 are analytical/general-knowledge and flagged "Needs verification," same discipline as the first pass on the Vogtle entry before it was fully sourced.',
+  ctaTitle: 'See how this compares to your program',
+  ctaBody:
+    "Register to benchmark your project's execution, financing, and lifecycle risk against Korea's APR1400 fleet and other established nuclear builds.",
+}
+
+export const establishedPrograms: EstablishedProgramConfig[] = [unitedStatesVogtle, southKoreaApr1400]
