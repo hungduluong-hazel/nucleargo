@@ -156,6 +156,22 @@ const FEATURED: FeaturedCountry[] = [
 
 const COMING_SOON: { flag: string; name: string }[] = []
 
+type BenchmarkProgram = {
+  flag: string
+  name: string
+  tagline: string
+  href: string
+}
+
+const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
+  {
+    flag: 'https://flagcdn.com/w40/us.png',
+    name: 'United States',
+    tagline: 'Plant Vogtle Units 3 & 4 — AP1000',
+    href: '/countries/united-states',
+  },
+]
+
 export default function CountriesContent() {
   const { t } = useLanguage()
 
@@ -181,6 +197,24 @@ export default function CountriesContent() {
           {FEATURED.map((c) => (
             <FeaturedCard key={c.href} country={c} t={t} />
           ))}
+        </div>
+
+        {/* Benchmark programs — established nations, scored against the
+            cost/risk framework instead of IAEA newcomer phases. */}
+        <div>
+          <div className="mb-5">
+            <h2 className="text-sm font-semibold text-navy/50 uppercase tracking-wider">
+              Benchmark Programs — Established Nations
+            </h2>
+            <p className="text-sm text-navy/45 mt-1">
+              Completed builds scored against the same cost/risk framework, for comparison against the programs above.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {BENCHMARK_PROGRAMS.map((p) => (
+              <BenchmarkCard key={p.href} program={p} />
+            ))}
+          </div>
         </div>
 
         {/* Coming soon grid */}
@@ -244,6 +278,34 @@ function FeaturedCard({ country, t }: { country: FeaturedCountry; t: TFn }) {
       <div className="pt-1 border-t border-navy/6">
         <span className="text-sm font-semibold text-accent group-hover:underline">
           {t('countries_view_profile')}
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+function BenchmarkCard({ program }: { program: BenchmarkProgram }) {
+  return (
+    <Link
+      href={program.href}
+      className="group bg-white rounded-2xl border border-navy/8 p-6 flex flex-col gap-5 hover:shadow-md hover:border-navy/20 transition-all"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <img src={program.flag} alt={program.name} className="w-8 h-auto" />
+          <div>
+            <p className="text-lg font-bold text-navy leading-tight">{program.name}</p>
+            <p className="text-xs text-navy/45 mt-0.5">{program.tagline}</p>
+          </div>
+        </div>
+        <span className="flex-shrink-0 text-xs font-semibold text-accent bg-accent/10 border border-accent/20 rounded-full px-3 py-1">
+          Benchmark
+        </span>
+      </div>
+
+      <div className="pt-1 border-t border-navy/6">
+        <span className="text-sm font-semibold text-accent group-hover:underline">
+          View benchmark →
         </span>
       </div>
     </Link>
