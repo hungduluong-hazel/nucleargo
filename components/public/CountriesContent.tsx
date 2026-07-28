@@ -176,6 +176,12 @@ const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
     tagline: 'APR1400 domestic fleet — 4 units',
     href: '/countries/south-korea',
   },
+  {
+    flag: 'https://flagcdn.com/w40/cn.png',
+    name: 'China',
+    tagline: 'Hualong One (HPR1000) fleet — Fuqing 5 & 6',
+    href: '/countries/china',
+  },
 ]
 
 export default function CountriesContent() {

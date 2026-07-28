@@ -441,4 +441,219 @@ export const southKoreaApr1400: EstablishedProgramConfig = {
     "Register to benchmark your project's execution, financing, and lifecycle risk against Korea's APR1400 fleet and other established nuclear builds.",
 }
 
-export const establishedPrograms: EstablishedProgramConfig[] = [unitedStatesVogtle, southKoreaApr1400]
+export const chinaHualongOne: EstablishedProgramConfig = {
+  flagUrl: 'https://flagcdn.com/w80/cn.png',
+  slug: 'china',
+  countryName: 'China',
+  heroTitle: 'China — Hualong One (HPR1000) Fleet',
+  heroSub:
+    "The indigenization case study: a homegrown Gen III+ design built at roughly a quarter of Vogtle's cost per watt, now running as a continuous multi-site, multi-decade fleet rather than a one-off project — and already exported.",
+  badge: 'Benchmark Program — Established Nation',
+  statPills: [
+    { icon: '💰', label: '~$2/watt standardized Chinese-designed plants vs ~$15/watt US, ~$4/watt France (Johns Hopkins/Nature study)' },
+    { icon: '⏱️', label: 'Fuqing 5 & 6 (first Hualong One units) built 2015–2022, on the original schedule' },
+    { icon: '⚡', label: '~2,150 MW domestic (Fuqing 5 & 6) + ~2,200 MW exported (Karachi K2/K3, Pakistan)' },
+  ],
+  summaryRows: [
+    { label: 'Reactor design', value: 'CNNC/CGN Hualong One (HPR1000) — domestic and export' },
+    { label: 'Location', value: 'Fuqing, Fujian Province, China (Xinghua Bay) — Units 5 & 6' },
+    { label: 'Lead owner/operator', value: 'China National Nuclear Corporation (CNNC, 51%)' },
+    { label: 'Co-owners', value: 'China Huadian Corp. (39%), Fujian Investment & Development Co. (10%)' },
+    { label: 'Fuqing 5 commercial operation', value: 'January 30, 2021 — first Hualong One in the world' },
+    { label: 'Fuqing 6 commercial operation', value: 'March 25, 2022' },
+    { label: 'Site history', value: 'Expansion of existing Fuqing plant — Units 1–4 (CPR-1000) commissioned 2014–2017' },
+    { label: 'Export reference', value: 'Karachi K2 & K3, Pakistan — first Hualong One export, ~$10B, commercial operation 2021/2022' },
+  ],
+  buildPhaseRisk: [
+    {
+      label: 'Design maturity before construction',
+      rating: 'strength',
+      finding: 'Design was finalized years before first concrete, not developed alongside construction',
+      detail:
+        "Hualong One traces to a 2012 government-directed merger of CNNC's ACP1000 and CGN's ACPR1000+ programs (themselves derived from the Areva M310 design used at Daya Bay). The unified design passed a joint National Energy Administration / National Nuclear Safety Administration technical review in August 2014 — nine months before first concrete was poured for Fuqing 5 in May 2015. That sequencing (design frozen, then build) is the reverse of Vogtle's AP1000, where licensing amendments were still being processed during construction.",
+      verified: true,
+      sourceLabel: 'Wikipedia — Hualong One (design merger and 2014 technical review)',
+      sourceUrl: 'https://en.wikipedia.org/wiki/Hualong_One',
+    },
+    {
+      label: 'Reference plant vs. first-of-a-kind',
+      rating: 'strength',
+      finding: 'Fuqing 5 was the reference plant, not an unproven export design',
+      detail:
+        'Fuqing 5 achieved first criticality in October 2020, connected to the grid that November, and entered commercial operation on January 30, 2021 — before China exported the same design to Karachi 2 & 3 in Pakistan (commercial operation May 2021 and April 2022) and before CGN\'s own demonstration units at Fangchenggang followed. By the time of the first export, the design already had an operating domestic reference plant behind it.',
+      verified: true,
+      sourceLabel: 'Wikipedia — Fuqing Nuclear Power Plant',
+      sourceUrl: 'https://en.wikipedia.org/wiki/Fuqing_Nuclear_Power_Plant',
+    },
+    {
+      label: 'Fleet effect / repetition',
+      rating: 'mixed',
+      finding: 'A large, multi-site fleet — but repetition alone did not guarantee schedule for every builder',
+      detail:
+        "CNNC's own two demonstration units (Fuqing 5 & 6) stayed close to their original schedule, entering commercial operation in 2021 and 2022. But CGN's parallel demonstration units of the same Hualong One design at Fangchenggang (units 3 & 4) slipped roughly three years — originally targeted for 2019/2020, both pushed to 2022/2024 — due to COVID-19 construction disruption, per CGN's own disclosure. Worth citing honestly: fleet scale reduces but doesn't eliminate schedule risk, and the two state builders' results diverged on the same design.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — Pandemic delays start-up of Fangchenggang Hualong One units',
+      sourceUrl: 'https://www.world-nuclear-news.org/Articles/Pandemic-delays-start-up-of-Fangchenggang-Hualong',
+    },
+    {
+      label: 'Contracting and risk allocation',
+      rating: 'strength',
+      finding: 'Built in-house by state-owned nuclear builders, not an independent EPC vendor that can go bankrupt mid-project',
+      detail:
+        "CNNC and CGN build and operate domestically through their own subsidiaries rather than contracting out to a third-party reactor vendor — removing the Westinghouse-style bankruptcy risk that hit Vogtle. For the Karachi export, CNNC (via China Zhongyuan Engineering Corporation) was general contractor and reactor supplier under a contract valued at roughly $9-10 billion, with the China Nuclear Engineering and Construction Group as construction contractor.",
+      verified: true,
+      sourceLabel: 'Power Technology — Karachi Nuclear Power Plant (KANUPP) Expansion',
+      sourceUrl: 'https://www.power-technology.com/projects/karachi-nuclear-power-plant-expansion/',
+    },
+    {
+      label: 'Site selection and site-specific engineering',
+      rating: 'strength',
+      finding: 'Brownfield expansion of an already-operating multi-unit site',
+      detail:
+        'Fuqing 5 & 6 were built alongside the already-operating Fuqing 1-4 (CPR-1000 units commissioned 2014-2017), reusing an established coastal site with existing grid connections and cooling water infrastructure — the same brownfield advantage documented at Vogtle, on an even larger single-site scale (six units total).',
+      verified: true,
+      sourceLabel: 'Wikipedia — Fuqing Nuclear Power Plant',
+      sourceUrl: 'https://en.wikipedia.org/wiki/Fuqing_Nuclear_Power_Plant',
+    },
+    {
+      label: 'Owner project-management capability',
+      rating: 'strength',
+      finding: 'Continuous, multi-site builders running several simultaneous projects, not a one-off mobilization',
+      detail:
+        "Unlike Southern Company's 30-year gap before Vogtle, CNNC and CGN were simultaneously building Hualong One units at Fuqing and Fangchenggang plus additional units at Zhangzhou, Changjiang, Taipingling, and San'ao at the same time — an active, continuous construction pipeline across multiple sites rather than a single crash mobilization.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — Pandemic delays start-up of Fangchenggang Hualong One units',
+      sourceUrl: 'https://www.world-nuclear-news.org/Articles/Pandemic-delays-start-up-of-Fangchenggang-Hualong',
+    },
+    {
+      label: 'Domestic workforce and human capital',
+      rating: 'strength',
+      finding: 'A continuous, indigenized construction and supply pipeline',
+      detail:
+        "A Johns Hopkins/Harvard/CUNY/Stony Brook study (published in Nature, July 2025) attributes China's stable low construction costs partly to strategic indigenization — substituting domestic components and Chinese civil-engineering and construction firms for imports, which also implies a steadily employed, experienced domestic workforce rather than one rebuilt from scratch for each project.",
+      verified: true,
+      sourceLabel: 'Interesting Engineering — China escapes nuclear \'cost curse\' with $2-per-watt power plants',
+      sourceUrl: 'https://interestingengineering.com/energy/china-cuts-nuclear-construction-cost',
+    },
+    {
+      label: 'Currency and inflation exposure',
+      rating: 'mixed',
+      finding: 'No FX risk domestically; China itself carries the exposure on export financing',
+      detail:
+        'Domestic builds are financed and contracted in CNY. For the Karachi export, more than 80% of the roughly $10 billion project cost was financed through a loan from China\'s state-owned Export-Import Bank — meaning for exports, China\'s own state lender (not the buyer) carries the long-duration cross-border financing exposure.',
+      verified: true,
+      sourceLabel: 'Power Technology — Karachi Nuclear Power Plant (KANUPP) Expansion',
+      sourceUrl: 'https://www.power-technology.com/projects/karachi-nuclear-power-plant-expansion/',
+    },
+  ],
+  financeability: [
+    {
+      label: 'Financing structure and cost of capital',
+      rating: 'strength',
+      finding: 'State ownership gives CNNC/CGN access to lower-cost, patient capital than Vogtle\'s mixed private/regulated structure',
+      detail:
+        "CNNC and CGN are central state-owned enterprises overseen by SASAC, financed through a mix of state equity, bonds, and state bank lending rather than needing to attract independent project financing the way Georgia Power did. Not independently re-confirmed this pass with a specific interest-rate citation — flagged for a direct source.",
+      verified: false,
+    },
+    {
+      label: 'Revenue and market structure',
+      rating: 'strength',
+      finding: 'State-planned electricity sector gives nuclear output a predictable revenue path',
+      detail:
+        "China's electricity sector remains heavily state-planned, with grid companies as the dominant purchasers of CNNC/CGN nuclear output under long-term arrangements — structurally similar to Korea's centrally planned model and a different risk profile than Georgia's contested rate-case process. Not independently re-confirmed this pass with a specific tariff-mechanism citation.",
+      verified: false,
+    },
+    {
+      label: 'Regulatory stability during construction',
+      rating: 'mixed',
+      finding: 'A real, documented approval freeze hit this exact site — coastal builds recovered, inland approvals still haven\'t',
+      detail:
+        "Following the Fukushima accident, China's State Council halted approvals for new nuclear plants on March 16, 2011. Construction of Fuqing Unit 4 itself was delayed by this safety review, pushing its start from an original 2011 target to November 2012. Coastal-plant approvals resumed in October 2012 and formally restarted in December 2014, but a moratorium on inland nuclear plant approvals imposed after Fukushima has persisted for over a decade — a genuine, still-unresolved regulatory-stability gap rather than a fully clean record.",
+      verified: true,
+      sourceLabel: 'Bulletin of the Atomic Scientists — China responds to Fukushima',
+      sourceUrl: 'https://thebulletin.org/2012/06/china-responds-to-fukushima/',
+    },
+    {
+      label: 'Political and public acceptance durability',
+      rating: 'strength',
+      finding: 'The 2011 pause was brief and coastal expansion has continued uninterrupted since',
+      detail:
+        "Unlike South Korea's multi-year Moon-administration phase-out policy that delayed Shin-Hanul, China's post-Fukushima coastal-plant pause lasted under two years (halted March 2011, approvals resumed October 2012, formally restarted December 2014) and the program has expanded continuously since — six units now operating at Fuqing alone, plus the multi-site build-out at Fangchenggang, Zhangzhou, Changjiang, Taipingling, and San'ao.",
+      verified: true,
+      sourceLabel: 'Bulletin of the Atomic Scientists — China responds to Fukushima',
+      sourceUrl: 'https://thebulletin.org/2012/06/china-responds-to-fukushima/',
+    },
+  ],
+  lifecycleLiability: [
+    {
+      label: 'Fuel cycle economics',
+      rating: 'mixed',
+      finding: 'Increasingly self-sufficient on enrichment; still import-dependent on raw uranium',
+      detail:
+        "CNNC's Lanzhou centrifuge enrichment facility (commissioned 2010, ~0.5 million SWU/year at the time) has grown CNNC's share of world uranium enrichment capacity to roughly 24.2% — second only to Russia's Rosatom — giving China a level of front-end fuel-cycle independence Korea structurally lacks. But domestic uranium mining supplies only around half of China's annual demand, with the remainder imported (Kazakhstan, Australia, Namibia among the main sources), so the raw-material input still carries import exposure even as enrichment does not.",
+      verified: true,
+      sourceLabel: 'Belfer Center — China\'s Uranium Enrichment Capacity: Rapid Expansion to Meet Commercial Needs',
+      sourceUrl: 'https://www.belfercenter.org/sites/default/files/pantheon_files/files/publication/chinasuraniumenrichmenntcapacity.pdf',
+    },
+    {
+      label: 'Decommissioning fund adequacy',
+      rating: 'mixed',
+      finding: 'A funding mechanism exists by regulation; plant-specific balances for Fuqing 5 & 6 not located',
+      detail:
+        "China levies a spent-fuel and waste-disposal fee of CNY 2.6 fen/kWh (about 0.026 CNY) from the fifth year of each reactor's commercial operation onward, administered under a China Atomic Energy Authority regulation on the Fund for Treatment and Disposal of Spent Fuel — confirming the mechanism is real and active. A Fuqing 5/6-specific fund balance wasn't located in this pass, plausible given both units only reached commercial operation in 2021-2022.",
+      verified: true,
+      sourceLabel: 'World Nuclear Association — China\'s Nuclear Fuel Cycle',
+      sourceUrl: 'https://world-nuclear.org/information-library/country-profiles/countries-a-f/china-nuclear-fuel-cycle',
+    },
+  ],
+  contextModifier: {
+    label: 'Energy security and scale context: demand growth and decarbonization, not import substitution',
+    detail:
+      "China is not resource-poor the way South Korea is — it holds large domestic coal reserves and a growing renewables base. The primary driver behind its nuclear build-out is different from both Vogtle (replacement baseload/grid reliability) and Korea (near-total import dependence): massive and still-growing electricity demand combined with a 2060 carbon-neutrality pledge, met through simultaneous buildout of coal, renewables, and nuclear rather than nuclear substituting for imported fuel. That reframes how directly China's cost performance should be read against either benchmark — it reflects an 'all of the above,' indigenization-driven scale strategy rather than a resource-security hedge.",
+  },
+  sources: [
+    {
+      label: 'Wikipedia — Hualong One',
+      url: 'https://en.wikipedia.org/wiki/Hualong_One',
+    },
+    {
+      label: 'Wikipedia — Fuqing Nuclear Power Plant',
+      url: 'https://en.wikipedia.org/wiki/Fuqing_Nuclear_Power_Plant',
+    },
+    {
+      label: 'World Nuclear News — Pandemic delays start-up of Fangchenggang Hualong One units',
+      url: 'https://www.world-nuclear-news.org/Articles/Pandemic-delays-start-up-of-Fangchenggang-Hualong',
+    },
+    {
+      label: 'Power Technology — Karachi Nuclear Power Plant (KANUPP) Expansion',
+      url: 'https://www.power-technology.com/projects/karachi-nuclear-power-plant-expansion/',
+    },
+    {
+      label: "Interesting Engineering — China escapes nuclear 'cost curse' with $2-per-watt power plants",
+      url: 'https://interestingengineering.com/energy/china-cuts-nuclear-construction-cost',
+    },
+    {
+      label: 'Bulletin of the Atomic Scientists — China responds to Fukushima',
+      url: 'https://thebulletin.org/2012/06/china-responds-to-fukushima/',
+    },
+    {
+      label: "Belfer Center — China's Uranium Enrichment Capacity",
+      url: 'https://www.belfercenter.org/sites/default/files/pantheon_files/files/publication/chinasuraniumenrichmenntcapacity.pdf',
+    },
+    {
+      label: "World Nuclear Association — China's Nuclear Fuel Cycle",
+      url: 'https://world-nuclear.org/information-library/country-profiles/countries-a-f/china-nuclear-fuel-cycle',
+    },
+  ],
+  verificationNote:
+    '12 of 14 dimensions carry a direct source link (all 8 under Build-Phase Risk, plus regulatory stability, political durability, fuel cycle economics, and decommissioning fund adequacy — including the honest Fangchenggang COVID delay under fleet effect). Financing structure and revenue/market structure remain analytical/general-knowledge and flagged "Needs verification," same discipline as the first pass on the Vogtle and South Korea entries before they were fully sourced.',
+  ctaTitle: 'See how this compares to your program',
+  ctaBody:
+    "Register to benchmark your project's execution, financing, and lifecycle risk against China's Hualong One fleet and other established nuclear builds.",
+}
+
+export const establishedPrograms: EstablishedProgramConfig[] = [
+  unitedStatesVogtle,
+  southKoreaApr1400,
+  chinaHualongOne,
+]
