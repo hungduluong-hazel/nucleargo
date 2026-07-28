@@ -182,6 +182,12 @@ const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
     tagline: 'Hualong One (HPR1000) fleet — Fuqing 5 & 6',
     href: '/countries/china',
   },
+  {
+    flag: 'https://flagcdn.com/w40/fr.png',
+    name: 'France',
+    tagline: 'Flamanville 3 EPR — first-of-a-kind after a 25-year gap',
+    href: '/countries/france',
+  },
 ]
 
 export default function CountriesContent() {
