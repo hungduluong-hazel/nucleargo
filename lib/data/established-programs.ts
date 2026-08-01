@@ -864,9 +864,224 @@ export const franceEpr: EstablishedProgramConfig = {
     "Register to benchmark your project's execution, financing, and lifecycle risk against Flamanville 3 and other established nuclear builds.",
 }
 
+export const unitedKingdomHinkleyC: EstablishedProgramConfig = {
+  flagUrl: 'https://flagcdn.com/w80/gb.png',
+  slug: 'united-kingdom',
+  countryName: 'United Kingdom',
+  heroTitle: 'United Kingdom — Hinkley Point C EPR',
+  heroSub:
+    "Same EPR design as Flamanville, opposite financing philosophy: instead of a state-owned utility absorbing the overrun, the UK's Contract for Difference structure was built to shift construction risk onto private developers — a live test of whether market-based financing changes the outcome, still under construction and not yet the answer either way.",
+  badge: 'Benchmark Program — Established Nation (Under Construction)',
+  statPills: [
+    { icon: '💰', label: '£35B EDF-stated cost (2015 prices), up to £46B "at today\'s prices" vs £18B original estimate' },
+    { icon: '⏱️', label: 'Construction started 2017; Unit 1 now targeted 2030-2031, a 22-year gap since Sizewell B (1995)' },
+    { icon: '⚡', label: '3,260 MW combined (2 EPR units) — CfD strike price £92.50/MWh (2012 prices) for 35 years' },
+  ],
+  summaryRows: [
+    { label: 'Reactor design', value: 'Framatome EPR × 2 (same design as Flamanville 3)' },
+    { label: 'Location', value: 'Hinkley Point, Somerset, England' },
+    { label: 'Lead owner/operator', value: 'NNB Generation Company — EDF 66.5% / China General Nuclear (CGN) 33.5% (nominal)' },
+    { label: 'Nuclear site licence granted', value: 'November 2012' },
+    { label: 'Design regulatory approval (GDA)', value: 'December 2012 — before construction started' },
+    { label: 'Funded Decommissioning Programme approved', value: 'October 2015 (conditional) — before construction started' },
+    { label: 'Construction start', value: '2017' },
+    { label: 'Current target for Unit 1', value: '2030-2031 (EDF/press estimates as of Feb 2026)' },
+    { label: 'Prior UK reactor', value: 'Sizewell B, completed 1995 — a 22-year gap before Hinkley C construction began' },
+  ],
+  buildPhaseRisk: [
+    {
+      label: 'Design maturity before construction',
+      rating: 'strength',
+      finding: 'Full regulatory design approval came five years before construction started, not during it',
+      detail:
+        "The UK EPR design received Design Acceptance Confirmation and a Statement of Design Acceptability from the Office for Nuclear Regulation (ONR) and the Environment Agency in December 2012 — after an interim approval in December 2011 — a full five years before construction began in 2017. That sequencing is the opposite of Flamanville, where a major vessel-steel anomaly surfaced eight years into construction.",
+      verified: true,
+      sourceLabel: 'ONR — UK European Pressurised Reactor (UK EPR) design acceptance',
+      sourceUrl: 'https://www.onr.org.uk/generic-design-assessment/assessment-of-reactors/uk-european-pressurised-reactor-uk-epr',
+    },
+    {
+      label: 'Reference plant vs. first-of-a-kind',
+      rating: 'mixed',
+      finding: 'A reference plant existed this time — it just didn\'t prevent the delay',
+      detail:
+        "By the time most of Hinkley C's construction took place, Taishan 1 in China (the same EPR design) had already been operating since December 2018. Unlike Flamanville or Olkiluoto, Hinkley wasn't racing a truly unproven design. But EDF's own explanation for the latest delay cites low productivity in complex electromechanical installation work (piping, cabling) — meaning the specific bottleneck was building the design with a new UK workforce and supply chain, not the reactor technology itself. A foreign reference plant reduces but doesn't eliminate first-build-in-a-country risk.",
+      verified: true,
+      sourceLabel: 'NucNet — UK Nuclear Station Could Be Delayed To 2031 And Cost Up To £46 Billion, Says EDF',
+      sourceUrl: 'https://www.nucnet.org/news/uk-nuclear-station-could-be-delayed-to-2031-and-cost-up-top-gbp46-billion-says-edf-1-3-2024',
+    },
+    {
+      label: 'Fleet effect / repetition',
+      rating: 'mixed',
+      finding: 'A two-unit site, with a near-identical repeat plant now funded — but unproven',
+      detail:
+        'Hinkley C itself is two EPR units on one site. A near-identical follow-on project, Sizewell C, reached a positive UK government funding decision in late 2022 (with the UK government taking a direct equity stake), explicitly intended to capture learning-curve savings from Hinkley\'s experience. That repetition effect is not yet demonstrated, since Sizewell C is still in early construction.',
+      verified: true,
+      sourceLabel: 'World Nuclear News — UK government takes 50% stake, confirms backing for Sizewell C',
+      sourceUrl: 'https://www.world-nuclear-news.org/Articles/UK-government-takes-50-stake,-gives-go-ahead-for-S',
+    },
+    {
+      label: 'Contracting and risk allocation',
+      rating: 'strength',
+      finding: 'Construction cost-overrun risk sits contractually with the private developers, not the state or consumers',
+      detail:
+        "Under the Contract for Difference structure, EDF and CGN — not UK taxpayers or electricity consumers — are contractually on the hook for construction cost overruns; the government's 2017 National Audit Office review confirmed this allocation while separately warning the deal itself offered only marginal value for money. This is a structurally different allocation than Vogtle (DOE loan guarantees plus partial ratepayer recovery) or France (state-owned EDF absorbing the overrun directly).",
+      verified: true,
+      sourceLabel: 'National Audit Office — Hinkley Point C',
+      sourceUrl: 'https://www.nao.org.uk/wp-content/uploads/2017/06/Hinkley-Point-C.pdf',
+    },
+    {
+      label: 'Site selection and site-specific engineering',
+      rating: 'strength',
+      finding: 'Brownfield site adjacent to two prior reactors',
+      detail:
+        'Hinkley C is being built on a 175-hectare site adjacent to the former Hinkley Point A (1965-2000) and Hinkley Point B (1976-2022) stations, reusing established grid connections and cooling water access — the same brownfield advantage documented at Vogtle, Fuqing, and Flamanville.',
+      verified: true,
+      sourceLabel: 'Power Technology — Hinkley Point C nuclear power station',
+      sourceUrl: 'https://www.power-technology.com/projects/hinkley-point-c-nuclear-power-station/',
+    },
+    {
+      label: 'Owner project-management capability',
+      rating: 'mixed',
+      finding: 'The same owner as Flamanville, but its lessons didn\'t fully transfer to a new country',
+      detail:
+        "EDF is the majority owner of both Flamanville 3 and Hinkley C, meaning it carries both France's historic fleet-building experience and its recent first-of-a-kind EPR lessons into the UK project. That experience evidently didn't fully transfer once applied to a new national workforce, supply chain, and regulatory environment — Hinkley has slipped years despite not being EDF's first EPR build. Analytical inference from the pattern across both projects, not independently confirmed with a source describing knowledge transfer directly — flagged for further verification.",
+      verified: false,
+    },
+    {
+      label: 'Domestic workforce and human capital',
+      rating: 'weakness',
+      finding: 'A 22-year construction gap, then Covid and Brexit on top of it',
+      detail:
+        "Hinkley C is the UK's first new reactor build since Sizewell B was completed in 1995. EDF has explicitly attributed recent delays and cost increases to Covid-19 disruption, Brexit (which disrupted EU labour and supply-chain access specifically), and low productivity in complex electromechanical installation work — a workforce and supply-chain rebuild problem layered with two additional UK-specific shocks not present in the US, Korean, or Chinese cases.",
+      verified: true,
+      sourceLabel: 'NucNet — UK Nuclear Station Could Be Delayed To 2031 And Cost Up To £46 Billion, Says EDF',
+      sourceUrl: 'https://www.nucnet.org/news/uk-nuclear-station-could-be-delayed-to-2031-and-cost-up-top-gbp46-billion-says-edf-1-3-2024',
+    },
+    {
+      label: 'Currency and inflation exposure',
+      rating: 'mixed',
+      finding: 'GBP-denominated, but Brexit itself — not just ordinary inflation — is a cited cost driver',
+      detail:
+        "Financed and contracted domestically in GBP, avoiding cross-border currency risk. But EDF names Brexit specifically (distinct from general inflation) as a driver of cost increases — a UK-specific disruption to European labour mobility and supply chains that doesn't have a clean parallel in the other entries in this framework.",
+      verified: true,
+      sourceLabel: 'NucNet — UK Nuclear Station Could Be Delayed To 2031 And Cost Up To £46 Billion, Says EDF',
+      sourceUrl: 'https://www.nucnet.org/news/uk-nuclear-station-could-be-delayed-to-2031-and-cost-up-top-gbp46-billion-says-edf-1-3-2024',
+    },
+  ],
+  financeability: [
+    {
+      label: 'Financing structure and cost of capital',
+      rating: 'strength',
+      finding: 'A 35-year guaranteed strike price lets private developers raise capital against predictable future revenue',
+      detail:
+        "The Contract for Difference guarantees NNB Generation Company a strike price of £92.50/MWh (2012 prices, indexed to inflation) for 35 years of output — giving EDF and CGN bankable revenue certainty despite carrying full construction-cost risk themselves. This is the named case in this framework's own economics doc for the CfD financing model.",
+      verified: true,
+      sourceLabel: 'UK Government — Hinkley Point C Contract for Difference',
+      sourceUrl: 'https://assets.publishing.service.gov.uk/media/6385d8d6e90e07789ae12720/hinkley-point-c-contract-for-difference-november-2022.pdf',
+    },
+    {
+      label: 'Revenue and market structure',
+      rating: 'mixed',
+      finding: 'A bankable mechanism for the developer, judged marginal value for money for consumers',
+      detail:
+        "The CfD gives consumers exposure in both directions: they fund top-up payments when the wholesale price is below £92.50/MWh, and receive clawback payments when it's above. The government's own National Audit Office concluded in its 2017 review that the Hinkley deal 'locked consumers into a risky and expensive project with uncertain strategic and economic benefits' and that the economic case was 'marginal and subject to significant uncertainty' even at the time it was signed.",
+      verified: true,
+      sourceLabel: 'National Audit Office — Hinkley Point C',
+      sourceUrl: 'https://www.nao.org.uk/wp-content/uploads/2017/06/Hinkley-Point-C.pdf',
+    },
+    {
+      label: 'Regulatory stability during construction',
+      rating: 'mixed',
+      finding: 'The design and licensing basis held steady, but real safety-enforcement action has hit the construction site',
+      detail:
+        "ONR has not reversed or renegotiated Hinkley C's core design approval or site licence during construction. But ONR inspectors have taken genuine enforcement action on site: in December 2025 they issued civil engineering contractor Bylor JV a fire safety notice after finding a 'risk of serious injury' from inadequate fire controls, and in February 2026 issued fire enforcement notices (a 'red rating' intervention) to five mechanical/electrical/heating contractors — Altrad Babcock, Altrad Services, Balfour Beatty Kilpatrick, Cavendish Nuclear, and NG Bailey — for inadequate fire-risk assessments and insufficient emergency escape routes. Real, ongoing regulatory friction at the construction-safety level, distinct from (and less severe than) a design-basis reversal.",
+      verified: true,
+      sourceLabel: "BBC — 'Risk of serious injury' at nuclear plant site",
+      sourceUrl: 'https://feeds.bbci.co.uk/news/articles/cqxq4wdxyryo',
+    },
+    {
+      label: 'Political and public acceptance durability',
+      rating: 'mixed',
+      finding: 'Cross-party support for the plant itself, but a real geopolitical rupture over its Chinese investor',
+      detail:
+        "Support for Hinkley C's construction has held across changes of UK government, unlike Korea's Shin-Hanul phase-out or France's 2015-2022 nuclear-share policy swing. But the China/CGN equity partnership became a genuine flashpoint: in 2022 the UK government paid CGN roughly £679 million to exit the follow-on Sizewell C project entirely, with then-PM Rishi Sunak declaring the 'golden era' of UK-China relations 'over.' CGN retains its Hinkley C stake, but itself halted funding contributions to the project in late 2023, leaving EDF to fund cost overruns alone and diluting CGN's effective ownership share — an unresolved, still-developing risk distinct from anything in the other three entries.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — UK removes China from Sizewell nuclear project, takes joint stake',
+      sourceUrl: 'https://www.france24.com/en/live-news/20221129-uk-removes-china-from-sizewell-nuclear-project-takes-joint-stake',
+    },
+  ],
+  lifecycleLiability: [
+    {
+      label: 'Fuel cycle economics',
+      rating: 'mixed',
+      finding: 'Real domestic enrichment capability, no domestic uranium mining',
+      detail:
+        "The UK has held a stake in Urenco (alongside Dutch and German shareholders) since 1970, giving it a real ownership claim on enrichment capacity at Urenco's Capenhurst site — one of a small number of commercial-scale enrichment operations in the world. The UK government has also funded a new £196 million HALEU (advanced fuel) enrichment facility at Capenhurst targeting 2031. But the UK mines no domestic uranium and imports all raw ore — strong on enrichment, structurally import-dependent on the front end, the same shape as France's and China's positions.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — UK aims for Urenco-built HALEU facility by 2031',
+      sourceUrl: 'https://www.world-nuclear-news.org/articles/uk-aims-for-urenco-built-haleu-facility-by-2031',
+    },
+    {
+      label: 'Decommissioning fund adequacy',
+      rating: 'strength',
+      finding: 'Legally required and government-approved before construction was even allowed to start',
+      detail:
+        "Under the UK's Energy Act 2008, any new nuclear operator must have a Funded Decommissioning Programme (FDP) approved by the Secretary of State before construction can begin. Hinkley C's FDP received conditional government approval on October 21, 2015 — nearly two years before construction started in 2017. That's a stronger structural precommitment than the 'accumulate funds as you go' model used at Vogtle, Korea's fleet, China's fleet, and France's EDF — though it also means the true adequacy of the fund's assumptions can't be assessed until decades from now.",
+      verified: true,
+      sourceLabel: 'No2NuclearPower — Waste and Decommissioning Financing Arrangements',
+      sourceUrl: 'https://www.no2nuclearpower.org.uk/new-reactors/facilitative-actions/waste-decommissioning-financing-arrangements/',
+    },
+  ],
+  contextModifier: {
+    label: 'Energy security context: a deliberate market-based bet, not a resource-security hedge',
+    detail:
+      "The UK is not resource-poor the way South Korea is, and its nuclear rationale isn't primarily fossil-fuel import substitution — it's decarbonization and grid firm-capacity, alongside a specific policy bet that privately financed, CfD-backed nuclear can be built without direct state ownership or state balance-sheet risk. That bet is still being tested in real time: costs have roughly doubled to tripled since FID, EDF alone is now funding overruns as CGN pulls back, and the government's own auditor flagged marginal economics from the outset. The UK's 2050 ambition of 24GW of nuclear capacity, and the decision to fund Sizewell C with a direct government equity stake rather than repeating the pure-CfD model, both suggest the market-based approach is already being partially walked back toward more direct state involvement — worth revisiting once Sizewell C has more construction history.",
+  },
+  sources: [
+    {
+      label: 'ONR — UK European Pressurised Reactor (UK EPR) design acceptance',
+      url: 'https://www.onr.org.uk/generic-design-assessment/assessment-of-reactors/uk-european-pressurised-reactor-uk-epr',
+    },
+    {
+      label: 'NucNet — UK Nuclear Station Could Be Delayed To 2031 And Cost Up To £46 Billion, Says EDF',
+      url: 'https://www.nucnet.org/news/uk-nuclear-station-could-be-delayed-to-2031-and-cost-up-top-gbp46-billion-says-edf-1-3-2024',
+    },
+    {
+      label: 'National Audit Office — Hinkley Point C',
+      url: 'https://www.nao.org.uk/wp-content/uploads/2017/06/Hinkley-Point-C.pdf',
+    },
+    {
+      label: 'World Nuclear News — UK government takes 50% stake, confirms backing for Sizewell C',
+      url: 'https://www.world-nuclear-news.org/Articles/UK-government-takes-50-stake,-gives-go-ahead-for-S',
+    },
+    {
+      label: 'World Nuclear News — UK removes China from Sizewell nuclear project, takes joint stake',
+      url: 'https://www.france24.com/en/live-news/20221129-uk-removes-china-from-sizewell-nuclear-project-takes-joint-stake',
+    },
+    {
+      label: "BBC — 'Risk of serious injury' at nuclear plant site",
+      url: 'https://feeds.bbci.co.uk/news/articles/cqxq4wdxyryo',
+    },
+    {
+      label: 'World Nuclear News — UK aims for Urenco-built HALEU facility by 2031',
+      url: 'https://www.world-nuclear-news.org/articles/uk-aims-for-urenco-built-haleu-facility-by-2031',
+    },
+    {
+      label: 'No2NuclearPower — Waste and Decommissioning Financing Arrangements',
+      url: 'https://www.no2nuclearpower.org.uk/new-reactors/facilitative-actions/waste-decommissioning-financing-arrangements/',
+    },
+  ],
+  verificationNote:
+    '13 of 14 dimensions carry a direct source link, including the firmed-up regulatory-stability finding (real ONR fire-safety enforcement notices in Dec 2025 and Feb 2026, not just an absence of bad news) and the CGN/Sizewell C geopolitical rupture. Owner project-management capability is analytical — inferred from EDF\'s dual role at Flamanville and Hinkley rather than a single direct citation — and flagged "Needs verification," same discipline as the first pass on the other three entries. Note this entry differs from the other three: Hinkley C is still under construction (targeted 2030-2031), so figures will continue to move.',
+  ctaTitle: 'See how this compares to your program',
+  ctaBody:
+    "Register to benchmark your project's execution, financing, and lifecycle risk against Hinkley Point C and other established nuclear builds.",
+}
+
 export const establishedPrograms: EstablishedProgramConfig[] = [
   unitedStatesVogtle,
   southKoreaApr1400,
   chinaHualongOne,
   franceEpr,
+  unitedKingdomHinkleyC,
 ]

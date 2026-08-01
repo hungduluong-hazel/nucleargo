@@ -188,6 +188,12 @@ const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
     tagline: 'Flamanville 3 EPR — first-of-a-kind after a 25-year gap',
     href: '/countries/france',
   },
+  {
+    flag: 'https://flagcdn.com/w40/gb.png',
+    name: 'United Kingdom',
+    tagline: 'Hinkley Point C EPR — Contract for Difference financing',
+    href: '/countries/united-kingdom',
+  },
 ]
 
 export default function CountriesContent() {
