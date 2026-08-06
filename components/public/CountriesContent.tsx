@@ -194,6 +194,12 @@ const BENCHMARK_PROGRAMS: BenchmarkProgram[] = [
     tagline: 'Hinkley Point C EPR — Contract for Difference financing',
     href: '/countries/united-kingdom',
   },
+  {
+    flag: 'https://flagcdn.com/w40/jp.png',
+    name: 'Japan',
+    tagline: 'Shimane 3 ABWR — finished since 2011, still awaiting first startup',
+    href: '/countries/japan',
+  },
 ]
 
 export default function CountriesContent() {

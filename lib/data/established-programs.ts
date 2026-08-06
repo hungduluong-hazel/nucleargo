@@ -1078,10 +1078,229 @@ export const unitedKingdomHinkleyC: EstablishedProgramConfig = {
     "Register to benchmark your project's execution, financing, and lifecycle risk against Hinkley Point C and other established nuclear builds.",
 }
 
+export const japanShimane3: EstablishedProgramConfig = {
+  flagUrl: 'https://flagcdn.com/w80/jp.png',
+  slug: 'japan',
+  countryName: 'Japan',
+  heroTitle: 'Japan — Shimane 3 (Advanced Boiling Water Reactor)',
+  heroSub:
+    "A reactor that was already ~94% built when Fukushima happened, then sat physically complete for over a decade waiting on a regulator that no longer existed under its old name. Shimane 3 isn't a story about whether Japan can build a reactor — it already did. It's a live test of whether an established nuclear nation can re-license and start up a finished plant after rewriting its entire safety regime out from under it.",
+  badge: 'Benchmark Program — Established Nation (Construction Complete, Awaiting First Startup)',
+  statPills: [
+    { icon: '💰', label: 'Shimane site safety-retrofit costs (Units 2 & 3) raised to ~¥900B (~$6B), up from ~¥680B, as of Nov 2023' },
+    { icon: '⏱️', label: 'Construction started Dec 2005, ~94% complete by the March 2011 accident; still not operating as of Aug 2026' },
+    { icon: '⚡', label: '1,373 MWe ABWR — would be the first new reactor to start up in Japan since Fukushima, targeted FY2030' },
+  ],
+  summaryRows: [
+    { label: 'Reactor design', value: 'Hitachi-GE Advanced Boiling Water Reactor (ABWR)' },
+    { label: 'Location', value: 'Matsue, Shimane Prefecture — Shimane NPP site, alongside Unit 1 (decommissioning) and Unit 2 (restarted Dec 2024)' },
+    { label: 'Owner/operator', value: 'Chugoku Electric Power Company' },
+    { label: 'Construction start', value: 'December 2005' },
+    { label: 'Original commercial operation target', value: 'March 2012' },
+    { label: 'Construction status at time of Fukushima accident', value: '~94% physically complete (March 2011)' },
+    { label: 'NRA safety-conformity application filed', value: 'August 2018' },
+    { label: 'Status as of July 2026', value: 'Still under NRA review — 3rd supplementary submission filed; local consent and detailed safety-measure design still pending' },
+    { label: 'Targeted operation', value: 'Fiscal year 2030 (Chugoku Electric / press estimates)' },
+  ],
+  buildPhaseRisk: [
+    {
+      label: 'Design maturity before construction',
+      rating: 'strength',
+      finding: 'A twice-proven domestic design, not a first-of-a-kind build',
+      detail:
+        "The ABWR was certified by the US Nuclear Regulatory Commission in May 1997 and had already been operating in Japan at Tokyo Electric's Kashiwazaki-Kariwa 6 and 7 since 1996-1997 — years before Shimane 3's construction began in December 2005. Unlike Flamanville's or Hinkley's EPR, Shimane 3 was never racing an unproven design; the technology itself was never the bottleneck.",
+      verified: true,
+      sourceLabel: 'Power Technology — Shimane 3 Nuclear Power Plant',
+      sourceUrl: 'https://www.power-technology.com/projects/shimane-3-nuclear-power-plant/',
+    },
+    {
+      label: 'Reference plant vs. first-of-a-kind',
+      rating: 'strength',
+      finding: 'Japan\'s most mature reactor generation, built and operating domestically before Shimane 3 started',
+      detail:
+        'By the time Shimane 3 broke ground, four ABWRs were already operating in Japan (Kashiwazaki-Kariwa 6 and 7, Hamaoka 5, Shika 2), built by essentially the same two vendors, Hitachi-GE and Toshiba. Shimane 3 itself was built using modularization techniques (prefabricated hydraulic control unit room modules) refined across that earlier fleet, and reached ~94% physical completion on a construction schedule broadly in line with its original 2005-2012 plan.',
+      verified: true,
+      sourceLabel: 'Power Technology — Shimane 3 Nuclear Power Plant',
+      sourceUrl: 'https://www.power-technology.com/projects/shimane-3-nuclear-power-plant/',
+    },
+    {
+      label: 'Fleet effect / repetition',
+      rating: 'mixed',
+      finding: 'Construction-side fleet learning didn\'t transfer to the one thing that actually stalled the project',
+      detail:
+        "The ABWR fleet's construction experience is real, but it didn't help with what actually delayed Shimane 3: Chugoku still had to be only the second Japanese utility (after J-Power's Ohma) to apply for a first-ever post-Fukushima operating license for a brand-new reactor. No amount of repeat-build efficiency on the construction side addresses a licensing bottleneck that is unprecedented for every utility attempting it.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — Safety review sought for new Japanese reactor',
+      sourceUrl: 'https://www.world-nuclear-news.org/Articles/Safety-review-sought-for-new-Japanese-reactor',
+    },
+    {
+      label: 'Regulatory framework continuity during construction',
+      rating: 'weakness',
+      finding: 'The regulator itself was dissolved and rebuilt, with an entirely new rulebook, after the plant was already built',
+      detail:
+        "Japan's pre-Fukushima regulator (NISA) was abolished and replaced by the Nuclear Regulation Authority in September 2012, which then wrote and imposed a completely new safety-standards framework in July 2013 — after Shimane 3 was already ~94% physically complete. Chugoku didn't submit its application to have the finished plant reviewed against the new standards until August 2018, and as of July 2026 that review is still ongoing (a third round of supplementary documentation was filed that month). This is a categorically different disruption than Hinkley's construction-site enforcement notices: the entire licensing regime changed after the concrete was already poured.",
+      verified: true,
+      sourceLabel: "Nippon.com — Japan's Nuclear Power Plants in 2025 (regulatory timeline)",
+      sourceUrl: 'https://www.nippon.com/en/japan-data/h02619/',
+    },
+    {
+      label: 'Contracting and risk allocation',
+      rating: 'mixed',
+      finding: 'A regulated monopoly recovers costs through customer tariffs, not project-specific financing',
+      detail:
+        "Chugoku Electric is a vertically integrated regional monopoly; safety-retrofit and construction costs are recovered through METI-regulated electricity tariffs rather than a project-specific vehicle like Vogtle's DOE loan guarantees or Hinkley's Contract for Difference. A 2015 revision to the Electricity Business Act lets utilities amortize decommissioning and safety costs over up to ten years instead of all at once, easing the rate-shock — but it also means Shimane 3's ballooning safety-measure bill (from ~¥680B to ~¥900B for the site) is already being passed through to ratepayers for a plant that has generated zero revenue in over a decade.",
+      verified: true,
+      sourceLabel: 'Chugoku Shimbun — Shimane safety-measures cost raised to ¥900B (Nov 2023)',
+      sourceUrl: 'https://www.chugoku-np.co.jp/articles/-/379835',
+    },
+    {
+      label: 'Site selection and site-specific engineering',
+      rating: 'strength',
+      finding: 'Brownfield site with two existing units and post-Fukushima tsunami hardening already built in',
+      detail:
+        'Shimane 3 sits on the existing ~200-hectare Shimane NPP site alongside Unit 1 (decommissioning) and Unit 2 (restarted December 2024), reusing established grid connections. The site was retrofitted with a 15-metre seawall designed to withstand tsunamis up to 11.6 metres, plus watertight doors and gas-turbine-backed cooling — safety hardening built directly into the same construction program rather than bolted on later.',
+      verified: true,
+      sourceLabel: 'Power Technology — Shimane 3 Nuclear Power Plant',
+      sourceUrl: 'https://www.power-technology.com/projects/shimane-3-nuclear-power-plant/',
+    },
+    {
+      label: 'Owner project-management capability',
+      rating: 'mixed',
+      finding: 'Chugoku has kept the site running and staffed — but that doesn\'t explain a 20-year licensing gap',
+      detail:
+        "Chugoku successfully restarted Shimane 2 in December 2024 after 13 years offline, showing it can execute a post-Fukushima restart end to end. But Shimane 3's gap between physical completion and possible startup (2011 to a targeted FY2030) is far longer than Unit 2's, and the delay looks driven by regulatory-regime change and local consent rather than anything specific to Chugoku's project management. Inference from the pattern across both units at the same site, not independently confirmed with a source that isolates owner capability from external factors — flagged for further verification.",
+      verified: false,
+    },
+    {
+      label: 'Local community and evacuation planning',
+      rating: 'weakness',
+      finding: 'An unresolved evacuation question for the same ~470,000 people, already litigated once at this exact site',
+      detail:
+        "About 470,000 people live within a 30km radius of the Shimane site. Ahead of the Unit 2 restart, it was noted there was no effective way to evacuate that population safely in an accident, and some residents filed for a provisional injunction to block the restart (the court declined to accept it). That same unresolved evacuation-capacity question sits over Unit 3, on the identical site, since local government consent is still listed as an outstanding item for its restart.",
+      verified: true,
+      sourceLabel: 'Power Technology — Shimane 3 Nuclear Power Plant / NEI — Japan restarts Shimane reactor',
+      sourceUrl: 'https://www.neimagazine.com/news/japan-restarts-shimane-reactor/',
+    },
+  ],
+  financeability: [
+    {
+      label: 'Financing structure and cost of capital',
+      rating: 'mixed',
+      finding: 'Predictable regulated-utility capital access, spent on a plant that has never sold a single kWh',
+      detail:
+        "As a regulated monopoly, Chugoku doesn't face Hinkley-style project-finance risk — its cost of capital is backstopped by guaranteed tariff recovery. But that same mechanism means ratepayers have already been funding a rising safety-measures bill (~¥680B to ~¥900B for the Shimane site as of Nov 2023) for a reactor that, fifteen years after physical completion, still hasn't generated any offsetting revenue.",
+      verified: true,
+      sourceLabel: 'Chugoku Shimbun — Shimane safety-measures cost raised to ¥900B (Nov 2023)',
+      sourceUrl: 'https://www.chugoku-np.co.jp/articles/-/379835',
+    },
+    {
+      label: 'Revenue and market structure',
+      rating: 'strength',
+      finding: 'National capacity factors are climbing fast for the reactors that do clear the licensing bar',
+      detail:
+        "Japan's average nuclear capacity factor reached 33.6% in fiscal 2025 — the highest since Fukushima and the third consecutive annual increase — as more restarted reactors returned to reliable operation. That's a leading indicator for what Shimane 3 could plausibly earn once (if) it clears licensing: the technical and operational track record of Japan's restarted fleet is strengthening even while Shimane 3 itself remains sidelined.",
+      verified: true,
+      sourceLabel: 'NucNet — Japan\'s Nuclear Capacity Factor Increases To Highest Level Since Fukushima',
+      sourceUrl: 'https://www.nucnet.org/news/japan-s-nuclear-capacity-factor-increases-to-highest-level-since-fukushima-5-3-2026',
+    },
+    {
+      label: 'Regulatory stability during licensing',
+      rating: 'weakness',
+      finding: 'Seven years into its safety review and counting, with no confirmed date',
+      detail:
+        "Chugoku filed its NRA safety-conformity application in August 2018. As of July 2026 — nearly eight years later — the review is still active, with a third round of supplementary documentation submitted that month and examination described as only 'accelerating' in the second half of 2025. Detailed safety-measure design and local government consent remain outstanding, and press reporting describes the eventual startup timing as still unclear even against a targeted FY2030 operation date.",
+      verified: true,
+      sourceLabel: 'Chugoku Shimbun — Shimane 3 review progress, 7 years since application',
+      sourceUrl: 'https://www.chugoku-np.co.jp/articles/-/693496',
+    },
+    {
+      label: 'Political and public acceptance durability',
+      rating: 'mixed',
+      finding: 'A genuine national policy reversal in Shimane 3\'s favor — but it hasn\'t yet translated into a restart date',
+      detail:
+        "Japan's national nuclear policy has swung hard toward restart since 2023: the GX Decarbonization Power Supply law (May 2023) removed the effective cap on reactor operating life beyond 60 years, the February 2025 basic energy plan dropped language about 'minimizing dependence' on nuclear power that had stood since 2014 and set a 20% nuclear-share target for fiscal 2040, and in June 2026 METI released Japan's first official reactor-replacement target since Fukushima (11-14 reactors rebuilt by the 2050s), with Prime Minister Sanae Takaichi publicly pushing accelerated restarts. None of that policy tailwind has yet produced a confirmed restart date for Shimane 3 specifically, where local evacuation planning and NRA review remain the binding constraints.",
+      verified: true,
+      sourceLabel: 'NucNet — Japan Aims To Replace 14 Ageing Nuclear Reactors By 2050s',
+      sourceUrl: 'https://www.nucnet.org/news/japan-aims-to-replace-14-ageing-nuclear-reactors-by-2050s-6-5-2026',
+    },
+  ],
+  lifecycleLiability: [
+    {
+      label: 'Fuel cycle economics',
+      rating: 'weakness',
+      finding: 'The back end of Japan\'s fuel cycle is even further behind schedule than Shimane 3 itself',
+      detail:
+        "Japan's flagship Rokkasho Reprocessing Plant has been delayed 27 times since construction began in 1993 and is now targeting completion within fiscal 2026 (by March 2027) — a target Aomori's own governor has said 'will definitely be delayed' again. Japan holds a large separated-plutonium stockpile from decades of partial reprocessing abroad, which draws ongoing international non-proliferation scrutiny, and mines no domestic uranium. A future-operating Shimane 3 would sit inside a fuel-cycle system whose back end is arguably less far along than the reactor itself.",
+      verified: true,
+      sourceLabel: 'World Nuclear News — Rokkasho reprocessing plant completion delayed again',
+      sourceUrl: 'https://world-nuclear-news.org/Articles/Rokkasho-reprocessing-plant-completion-delayed-aga',
+    },
+    {
+      label: 'Decommissioning fund adequacy',
+      rating: 'mixed',
+      finding: 'A centrally-managed reserve system on paper, not yet tested at scale',
+      detail:
+        "Under Japan's Electricity Business Act, utilities set aside decommissioning reserve funds centrally managed by OCCTO (the Organization for Cross-regional Coordination of Transmission Operators), with a 2015 revision letting decommissioning and safety costs be recovered through tariffs over up to ten years instead of as a lump sum. That's a structured, centrally-monitored system — but Japan has so far only decommissioned older, smaller reactors (Shimane 1, closed 2015, isn't expected to finish decommissioning until 2046), so the fund's adequacy for a full-scale fleet wind-down remains unproven.",
+      verified: true,
+      sourceLabel: 'Power Technology — Shimane 3 Nuclear Power Plant (Unit 1 decommissioning timeline)',
+      sourceUrl: 'https://www.power-technology.com/projects/shimane-3-nuclear-power-plant/',
+    },
+  ],
+  contextModifier: {
+    label: 'Energy security context: a resource-poor nation reversing its own post-Fukushima retreat',
+    detail:
+      "Japan imports nearly all of its primary energy and ran roughly 30% of its electricity on nuclear power before 2011, then took its entire fleet offline after Fukushima. The policy pendulum has swung back hard — the GX law, the 2025 energy plan, and the 2026 replacement target all point toward a rebuilt nuclear sector — driven partly by rising electricity demand from AI data centers and a desire to cut costly fuel imports. But Shimane 3 shows that policy tailwind and physical readiness aren't enough on their own: the plant has been essentially finished since 2011, and the binding constraints today are a regulatory regime that didn't exist when it was built and a local evacuation question that has already been litigated once at this exact site. Worth revisiting once the NRA review concludes and an actual restart date is confirmed.",
+  },
+  sources: [
+    {
+      label: 'World Nuclear News — Safety review sought for new Japanese reactor',
+      url: 'https://www.world-nuclear-news.org/Articles/Safety-review-sought-for-new-Japanese-reactor',
+    },
+    {
+      label: 'Power Technology — Shimane 3 Nuclear Power Plant',
+      url: 'https://www.power-technology.com/projects/shimane-3-nuclear-power-plant/',
+    },
+    {
+      label: 'NEI — Japan restarts Shimane reactor',
+      url: 'https://www.neimagazine.com/news/japan-restarts-shimane-reactor/',
+    },
+    {
+      label: 'Chugoku Shimbun — Shimane 3 review progress, 7 years since application',
+      url: 'https://www.chugoku-np.co.jp/articles/-/693496',
+    },
+    {
+      label: 'Chugoku Shimbun — Shimane safety-measures cost raised to ¥900B (Nov 2023)',
+      url: 'https://www.chugoku-np.co.jp/articles/-/379835',
+    },
+    {
+      label: 'NucNet — Japan Aims To Replace 14 Ageing Nuclear Reactors By 2050s',
+      url: 'https://www.nucnet.org/news/japan-aims-to-replace-14-ageing-nuclear-reactors-by-2050s-6-5-2026',
+    },
+    {
+      label: "NucNet — Japan's Nuclear Capacity Factor Increases To Highest Level Since Fukushima",
+      url: 'https://www.nucnet.org/news/japan-s-nuclear-capacity-factor-increases-to-highest-level-since-fukushima-5-3-2026',
+    },
+    {
+      label: "Nippon.com — Japan's Nuclear Power Plants in 2025",
+      url: 'https://www.nippon.com/en/japan-data/h02619/',
+    },
+    {
+      label: 'World Nuclear News — Rokkasho reprocessing plant completion delayed again',
+      url: 'https://world-nuclear-news.org/Articles/Rokkasho-reprocessing-plant-completion-delayed-aga',
+    },
+  ],
+  verificationNote:
+    '13 of 14 dimensions carry a direct source link. Owner project-management capability is analytical — inferred from comparing Chugoku\'s Unit 2 and Unit 3 timelines rather than a single direct citation — and flagged "Needs verification," the same discipline applied to the equivalent dimension in the UK entry. Two sources (Chugoku Shimbun, both dated 2023 and 2026) are Japanese-language regional press; facts drawn from them are cross-checked against the English-language trade press (World Nuclear News, NucNet, NEI) where available. This entry differs from the other five: Shimane 3 has never generated commercial power, so its "build phase" figures describe a plant that is physically finished but not yet licensed to operate — a distinct risk category from cost overruns during active construction.',
+  ctaTitle: 'See how this compares to your program',
+  ctaBody:
+    "Register to benchmark your project's execution, financing, and lifecycle risk against Shimane 3 and other established nuclear builds.",
+}
+
 export const establishedPrograms: EstablishedProgramConfig[] = [
   unitedStatesVogtle,
   southKoreaApr1400,
   chinaHualongOne,
   franceEpr,
   unitedKingdomHinkleyC,
+  japanShimane3,
 ]
